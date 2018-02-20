@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+use yii\console\Application;
+use yii\console\controllers\FixtureController;
+use yii\console\controllers\MigrateController;
+use yii\helpers\ArrayHelper;
+
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+
+require(__DIR__ . '/tests/bootstrap.php');
+
+$configPath = Yii::getAlias('@configFile');
+$testsConfig = is_file($configPath) ? require $configPath : [];
+$config = [
+    'controllerMap' => [
+        'migrate' => [
+            'class' => MigrateController::class,
+            'migrationNamespaces' => [
+                'Horat1us\\Package\\Migrations',
+            ],
+            'migrationPath' => null,
+        ],
+        'fixture' => [
+            'class' => FixtureController::class,
+            'namespace' => 'Horat1us\\Package\\Tests\\Fixtures',
+        ]
+    ],
+];
+
+$application = new Application(ArrayHelper::merge($testsConfig, $config));
+$exitCode = $application->run();
+exit($exitCode);

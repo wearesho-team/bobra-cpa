@@ -1,0 +1,4 @@
+/vendor/
+/.idea/
+/output/config-local.php
+/tests/db.sqlite
