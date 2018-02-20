@@ -33,6 +33,11 @@ trait LeadFormTrait
         ];
     }
 
+    final public function formName()
+    {
+        return "LeadForm";
+    }
+
     final protected function generateResponse(): array
     {
         $lead = $this->save($this->source);
