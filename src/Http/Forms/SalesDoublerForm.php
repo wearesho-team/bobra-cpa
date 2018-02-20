@@ -17,11 +17,17 @@ class SalesDoublerForm extends Form
     /** @var string */
     public $clickId;
 
+    /**
+     * Web master identifier
+     * @var string
+     */
+    public $aid;
+
     public function rules()
     {
         return [
             ['clickId', 'required',],
-            ['clickId', 'string',]
+            [['clickId', 'aid'], 'string',]
         ];
     }
 
