@@ -9,7 +9,12 @@ require_once(dirname(__DIR__) . '/vendor/autoload.php');
 require_once(dirname(__DIR__) . '/vendor/yiisoft/yii2/Yii.php');
 
 Yii::setAlias(
-    '@Horat1us/Package/Migrations',
+    '@Wearesho/Bobra/Cpa/Migrations',
     dirname(__DIR__) . DIRECTORY_SEPARATOR . "migrations"
 );
 Yii::setAlias('@configFile', __DIR__ . DIRECTORY_SEPARATOR . 'config.php');
+
+Yii::$container->set(
+    \GuzzleHttp\ClientInterface::class,
+    \Wearesho\Bobra\Cpa\Tests\Unit\Mocks\ClientMock::class
+);
