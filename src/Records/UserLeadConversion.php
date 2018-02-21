@@ -3,6 +3,7 @@
 namespace Wearesho\Bobra\Cpa\Records;
 
 use paulzi\jsonBehavior\JsonBehavior;
+use paulzi\jsonBehavior\JsonField;
 use paulzi\jsonBehavior\JsonValidator;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -14,8 +15,8 @@ use yii\db\ActiveRecord;
  * @property int $id [integer]
  * @property string $user_lead_id [integer]
  * @property string $conversion_id
- * @property string $request [JSON]
- * @property string $response [JSON]
+ * @property JsonField $request [JSON]
+ * @property JsonField $response [JSON]
  *
  * @property UserLead $lead
  */
