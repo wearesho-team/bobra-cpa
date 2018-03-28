@@ -3,7 +3,6 @@
 namespace Wearesho\Bobra\Cpa\Http;
 
 use Horat1us\Yii\Exceptions\ModelException;
-use paulzi\jsonBehavior\JsonField;
 use Wearesho\Bobra\Cpa\CpaPermission;
 use Wearesho\Bobra\Cpa\Records\UserLead;
 use Wearesho\Yii\Http\Behaviors\AccessControl;
@@ -52,7 +51,7 @@ trait LeadFormTrait
 
         $lead->user_id = \Yii::$app->user->id;
         $lead->source = $source;
-        $lead->config = new JsonField($this->getAttributes());
+        $lead->config = $this->getAttributes();
 
         return ModelException::saveOrThrow($lead);
     }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7dff56a3d301eeadd0640b22ca4f63b0",
+    "content-hash": "a26def605031d4aa1c04ed445b9d3272",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -452,24 +452,25 @@
         },
         {
             "name": "horat1us/yii2-base",
-            "version": "1.8.10",
+            "version": "1.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Horat1us/yii2-base.git",
-                "reference": "360d9f6082991722d2b24700b90cd9e618c754f7"
+                "reference": "fc6bbf1abccad2c92d39f79f2ab896e311e2227e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Horat1us/yii2-base/zipball/360d9f6082991722d2b24700b90cd9e618c754f7",
-                "reference": "360d9f6082991722d2b24700b90cd9e618c754f7",
+                "url": "https://api.github.com/repos/Horat1us/yii2-base/zipball/fc6bbf1abccad2c92d39f79f2ab896e311e2227e",
+                "reference": "fc6bbf1abccad2c92d39f79f2ab896e311e2227e",
                 "shasum": ""
             },
             "require": {
                 "nesbot/carbon": "^1.22",
                 "php": ">=7.1",
-                "yiisoft/yii2": "~2.0.13.1"
+                "yiisoft/yii2": "^2.0.13.1"
             },
             "require-dev": {
+                "fzaninotto/faker": "^1.7",
                 "phpunit/phpunit": "^6.2"
             },
             "type": "library",
@@ -496,7 +497,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2018-02-20T11:46:47+00:00"
+            "time": "2018-03-21T12:54:39+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -550,52 +551,6 @@
                 "time"
             ],
             "time": "2017-01-16T07:55:07+00:00"
-        },
-        {
-            "name": "paulzi/yii2-json-behavior",
-            "version": "v1.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/paulzi/yii2-json-behavior.git",
-                "reference": "d182d57c296b7be447d74a52f1dc8ea6ff9ca5eb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/paulzi/yii2-json-behavior/zipball/d182d57c296b7be447d74a52f1dc8ea6ff9ca5eb",
-                "reference": "d182d57c296b7be447d74a52f1dc8ea6ff9ca5eb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "yiisoft/yii2": "~2.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "paulzi\\jsonBehavior\\": "./src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PaulZi",
-                    "email": "pavel.zimakoff@gmail.com"
-                }
-            ],
-            "description": "Yii2 json attribute behavior",
-            "keywords": [
-                "Behavior",
-                "json",
-                "validator",
-                "yii2"
-            ],
-            "time": "2017-11-07T14:59:51+00:00"
         },
         {
             "name": "psr/http-message",
@@ -821,16 +776,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.13.1",
+            "version": "2.0.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "7af96d8da5ea3e9a5dd05d0e734b21c5726a6ddf"
+                "reference": "ed3a9e1c4abe206e1c3ce48a6b3624119b79850d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7af96d8da5ea3e9a5dd05d0e734b21c5726a6ddf",
-                "reference": "7af96d8da5ea3e9a5dd05d0e734b21c5726a6ddf",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ed3a9e1c4abe206e1c3ce48a6b3624119b79850d",
+                "reference": "ed3a9e1c4abe206e1c3ce48a6b3624119b79850d",
                 "shasum": ""
             },
             "require": {
@@ -917,7 +872,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-11-14T11:08:21+00:00"
+            "time": "2018-03-21T18:36:53+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -2434,16 +2389,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Horat1us/yii2-phpunit.git",
-                "reference": "53c9ce124b3bfac1b4fc04e7e4b761c70a24af70"
+                "reference": "7ea2f005dd41ac4b632a571f6d1bdc3cb3e2ab4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Horat1us/yii2-phpunit/zipball/53c9ce124b3bfac1b4fc04e7e4b761c70a24af70",
-                "reference": "53c9ce124b3bfac1b4fc04e7e4b761c70a24af70",
+                "url": "https://api.github.com/repos/Horat1us/yii2-phpunit/zipball/7ea2f005dd41ac4b632a571f6d1bdc3cb3e2ab4e",
+                "reference": "7ea2f005dd41ac4b632a571f6d1bdc3cb3e2ab4e",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "~2.0.13.1"
+                "yiisoft/yii2": "^2.0.13.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.5"
@@ -2464,7 +2419,7 @@
             "support": {
                 "source": "https://github.com/Horat1us/yii2-phpunit/tree/master"
             },
-            "time": "2018-01-02T18:49:11+00:00"
+            "time": "2018-03-22T10:47:33+00:00"
         }
     ],
     "aliases": [],

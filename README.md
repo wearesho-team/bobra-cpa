@@ -38,6 +38,26 @@ return [
     ],    
 ];
 ```
+- add to your web configuration:
+```php
+<?php
+
+use yii\base\Module;
+use Wearesho\Bobra\Cpa\Http\LeadController;
+
+return [
+    'modules' => [
+        'index' => [
+            'class' => Module::class,
+            'controllerMap' => [
+                'lead' => LeadController::class,
+            ],
+        ], 
+    ],
+];
+```
+- Configure environment variables
+
 
 ## Tests
 Run tests:

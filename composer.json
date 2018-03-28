@@ -5,10 +5,9 @@
   "require": {
     "php": ">=7.2",
     "guzzlehttp/guzzle": "^6.3",
-    "horat1us/yii2-base": "^1.8",
-    "paulzi/yii2-json-behavior": "^1.0",
+    "horat1us/yii2-base": "^1.9",
     "wearesho-team/yii-http": "^1.4",
-    "yiisoft/yii2": "~2.0.13.1"
+    "yiisoft/yii2": "^2.0.14.2"
   },
   "license": "MIT",
   "authors": [

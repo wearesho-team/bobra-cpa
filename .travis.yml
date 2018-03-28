@@ -1,16 +1,26 @@
 language: php
+services:
+  - mysql
 
 php:
-    - 7.0.15
-    - 7.1
     - 7.2
 
 before_script:
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source
 
+before_install:
+    - mysql -u root -e "CREATE DATABASE bobra_cpa CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
 script:
     - ./vendor/bin/phpunit --coverage-clover=coverage.xml
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
+
+env:
+    - DB_TYPE: mysql
+    - DB_HOST: localhost
+    - DB_USER: root
+    - DB_NAME: bobra_cpa
+    - DB_PASS:

@@ -3,10 +3,10 @@
 namespace Wearesho\Bobra\Cpa\Services;
 
 use GuzzleHttp\ClientInterface;
-
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
+
 use Wearesho\Bobra\Cpa\Entities\PostbackTuple;
 use Wearesho\Bobra\Cpa\Interfaces\ConversionSenderInterface;
 

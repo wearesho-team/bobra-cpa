@@ -3,9 +3,6 @@
 namespace Wearesho\Bobra\Cpa\Records;
 
 use Horat1us\Yii\Validators\ConstRangeValidator;
-use paulzi\jsonBehavior\JsonBehavior;
-use paulzi\jsonBehavior\JsonField;
-use paulzi\jsonBehavior\JsonValidator;
 use yii\db\ActiveRecord;
 
 /**
@@ -15,7 +12,7 @@ use yii\db\ActiveRecord;
  * @property string $id [integer]
  * @property string $user_id [integer]
  * @property string $source
- * @property JsonField $config [JSON]
+ * @property array $config [JSON]
  */
 class UserLead extends ActiveRecord
 {
@@ -28,17 +25,7 @@ class UserLead extends ActiveRecord
             ['user_id', 'integer',],
             ['source', 'string',],
             ['source', ConstRangeValidator::class,],
-            ['config', JsonValidator::class,],
-        ];
-    }
-
-    public function behaviors()
-    {
-        return [
-            'json' => [
-                'class' => JsonBehavior::class,
-                'attributes' => ['config',],
-            ],
+            ['config', 'safe',],
         ];
     }
 }

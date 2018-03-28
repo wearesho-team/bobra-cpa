@@ -3,8 +3,7 @@
 namespace Wearesho\Bobra\Cpa\Services;
 
 use Horat1us\Yii\Exceptions\ModelException;
-
-use paulzi\jsonBehavior\JsonField;
+use Horat1us\Yii\Interfaces\ModelExceptionInterface;
 
 use Wearesho\Bobra\Cpa\Factories\ConversionSenderFactory;
 use Wearesho\Bobra\Cpa\Records\UserLead;
@@ -30,7 +29,7 @@ class ConversionService extends Component
     /**
      * @param UserLead $lead
      * @param string $conversion
-     * @throws \Horat1us\Yii\Traits\ModelExceptionTrait
+     * @throws ModelExceptionInterface
      */
     public function register(UserLead $lead, string $conversion): void
     {
@@ -45,29 +44,29 @@ class ConversionService extends Component
             \Yii::info("Trying to send conversion through disabled sender.", static::class);
         }
 
-        $result = $sender->send($conversion, $lead->config->toArray());
+        $result = $sender->send($conversion, $lead->config);
 
         $conversion = new UserLeadConversion();
         $conversion->lead = $lead;
         $conversion->conversion_id = $conversion;
 
         if ($conversion->isExists()) {
-            \Yii::trace("Skipping sending duplicate conversion {$conversion}", static::class);
+            \Yii::info("Skipping sending duplicate conversion {$conversion}", static::class);
             return;
         }
 
-        $conversion->request = new JsonField([
+        $conversion->request = [
             'method' => $result->getRequest()->getMethod(),
             'uri' => $result->getRequest()->getUri(),
             'body' => $result->getRequest()->getBody()->getContents(),
-        ]);
+        ];
 
         if ($response = $result->getResponse()) {
             \Yii::error("Response for conversion $conversion does not formed well.", static::class);
-            $conversion->response = new JsonField([
+            $conversion->response = [
                 'code' => $response->getStatusCode(),
                 'body' => $response->getBody()->getContents(),
-            ]);
+            ];
         }
 
         \Yii::trace("Conversion $conversion sent.", static::class);
