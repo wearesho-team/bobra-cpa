@@ -1,6 +1,6 @@
 <?php
 
-namespace Horat1us\Package\Tests;
+namespace Wearesho\Bobra\Cpa\Tests;
 
 use yii\helpers\ArrayHelper;
 use yii\phpunit\MigrateFixture;
@@ -8,7 +8,7 @@ use yii\phpunit\TestCase;
 
 /**
  * Class AbstractTestCase
- * @package Horat1us\Package\Tests
+ * @package Wearesho\Bobra\Cpa\Tests
  *
  * @internal
  */
@@ -20,7 +20,7 @@ abstract class AbstractTestCase extends TestCase
             [
                 'class' => MigrateFixture::class,
                 'migrationNamespaces' => [
-                    'Horat1us\\Package\\Migrations',
+                    'Wearesho\\Bobra\\Cpa\\Migrations',
                 ]
             ]
         ];

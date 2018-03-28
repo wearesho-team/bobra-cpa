@@ -5,6 +5,7 @@ namespace Wearesho\Bobra\Cpa\Services;
 use Horat1us\Yii\Exceptions\ModelException;
 use Horat1us\Yii\Interfaces\ModelExceptionInterface;
 
+use Psr\Http\Message\ResponseInterface;
 use Wearesho\Bobra\Cpa\Factories\ConversionSenderFactory;
 use Wearesho\Bobra\Cpa\Records\UserLead;
 use Wearesho\Bobra\Cpa\Records\UserLeadConversion;
@@ -28,10 +29,10 @@ class ConversionService extends Component
 
     /**
      * @param UserLead $lead
-     * @param string $conversion
+     * @param string $conversionId
      * @throws ModelExceptionInterface
      */
-    public function register(UserLead $lead, string $conversion): void
+    public function register(UserLead $lead, string $conversionId): void
     {
         try {
             $sender = $this->factory->instantiate($lead->source);
@@ -42,18 +43,19 @@ class ConversionService extends Component
 
         if (!$sender->isEnabled()) {
             \Yii::info("Trying to send conversion through disabled sender.", static::class);
+            return;
         }
-
-        $result = $sender->send($conversion, $lead->config);
 
         $conversion = new UserLeadConversion();
         $conversion->lead = $lead;
-        $conversion->conversion_id = $conversion;
+        $conversion->conversion_id = $conversionId;
 
         if ($conversion->isExists()) {
-            \Yii::info("Skipping sending duplicate conversion {$conversion}", static::class);
+            \Yii::info("Skipping sending duplicate conversion {$conversionId}", static::class);
             return;
         }
+
+        $result = $sender->send($conversionId, $lead->config);
 
         $conversion->request = [
             'method' => $result->getRequest()->getMethod(),
@@ -61,15 +63,17 @@ class ConversionService extends Component
             'body' => $result->getRequest()->getBody()->getContents(),
         ];
 
-        if ($response = $result->getResponse()) {
-            \Yii::error("Response for conversion $conversion does not formed well.", static::class);
+        $response = $result->getResponse();
+        if ($response instanceof ResponseInterface) {
             $conversion->response = [
                 'code' => $response->getStatusCode(),
                 'body' => $response->getBody()->getContents(),
             ];
+        } else {
+            \Yii::error("Response for conversion $conversionId does not formed well.", static::class);
         }
 
-        \Yii::trace("Conversion $conversion sent.", static::class);
+        \Yii::info("Conversion $conversionId sent.", static::class);
 
         ModelException::saveOrThrow($conversion);
     }
@@ -102,7 +106,7 @@ class ConversionService extends Component
             \Yii::warning("Trying to send conversion without logged in user", static::class);
             return;
         }
-        $lead = UserLead::find()->andWhere(['=', 'user_id', $user]);
+        $lead = UserLead::find()->andWhere(['=', 'user_id', $user])->one();
         if (!$lead instanceof UserLead) {
             return;
         }
