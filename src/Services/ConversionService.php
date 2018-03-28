@@ -59,7 +59,7 @@ class ConversionService extends Component
 
         $conversion->request = [
             'method' => $result->getRequest()->getMethod(),
-            'uri' => $result->getRequest()->getUri(),
+            'uri' => (string)$result->getRequest()->getUri(),
             'body' => $result->getRequest()->getBody()->getContents(),
         ];
 
