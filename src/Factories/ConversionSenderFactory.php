@@ -5,6 +5,7 @@ namespace Wearesho\Bobra\Cpa\Factories;
 use Wearesho\Bobra\Cpa\Interfaces\ConversionSenderInterface;
 use Wearesho\Bobra\Cpa\Records\UserLead;
 use Wearesho\Bobra\Cpa\Services\DoAffiliateSendService;
+use Wearesho\Bobra\Cpa\Services\FinLineSendService;
 use Wearesho\Bobra\Cpa\Services\LoanGateSendService;
 use Wearesho\Bobra\Cpa\Services\SalesDoublerSendService;
 use yii\di\Instance;
@@ -31,6 +32,7 @@ class ConversionSenderFactory
                 'class' => DoAffiliateSendService::class,
                 'path' => getenv(DoAffiliateSendService::ENV_PATH_KEY),
             ],
+            UserLead::SOURCE_FIN_LINE => FinLineSendService::class,
         ];
     }
 

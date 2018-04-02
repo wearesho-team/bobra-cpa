@@ -1,5 +1,14 @@
 # Bobra CPA Connection (back-end)
 
+Integrated:
+- SalesDoubler
+- DoAffiliate
+- LoanGate
+- FinLine
+
+To be integrated:
+- AdmitAd
+
 ## Installation
 
 ### As dependency
