@@ -17,6 +17,7 @@ use yii\db\ActiveRecord;
 class UserLead extends ActiveRecord
 {
     public const SOURCE_SALES_DOUBLER = 'salesDoubler';
+    public const SOURCE_LOAN_GATE = 'loanGate';
 
     public function rules()
     {
