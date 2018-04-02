@@ -1,6 +1,5 @@
 # Bobra CPA Connection (back-end)
 
-
 ## Installation
 
 ### As dependency
@@ -67,11 +66,21 @@ Run tests:
 
 ## Configuration
 This package can be configured using `getenv` function. Available settings:
-- SALES_DOUBLER_TOKEN - token for request URI for SalesDoubler
+- **SALES_DOUBLER_TOKEN** - token for request URI for SalesDoubler
 
-If one of key for some CPA network will not be preset 
+If one of key for some CPA network not set 
 postback requests for this network will not be done. 
 
+
+## Add new CPA
+To add new CPA network you have to:
+- add constant to [UserLead](./src/Records/UserLead.php) with CPA network name
+- create form that creates lead in [src/Http/Forms](./src/Http/Forms).
+It should use [LeadFormTrait](./src/Http/LeadFormTrait.php)
+- create send service in [src/Services](./src/Services)
+It should implement [ConversionSenderInterface](./src/Interfaces/ConversionSenderInterface.php)
+- extend [ConversionSenderFactory](./src/Factories/ConversionSenderFactory.php) with your sender
+- add documentation for configuring new CPA network
 
 ## Structure
 
@@ -84,5 +93,9 @@ tests/
     Unit/           contains PHPUnit tests 
 vendor/                  contains dependent 3rd-party packages
 ```
+
+## Contributors
+- [Alexander <horat1us> Letnikow](mailto:reclamme@gmail.com)
+
 ## License
 [MIT](./LICENSE)
