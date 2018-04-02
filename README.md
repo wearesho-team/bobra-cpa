@@ -78,7 +78,8 @@ To add new CPA network you have to:
 - create form that creates lead in [src/Http/Forms](./src/Http/Forms).
 It should use [LeadFormTrait](./src/Http/LeadFormTrait.php)
 - create send service in [src/Services](./src/Services)
-It should implement [ConversionSenderInterface](./src/Interfaces/ConversionSenderInterface.php)
+It have to implement [ConversionSenderInterface](./src/Interfaces/ConversionSenderInterface.php)
+and should extend [AbstractSendService](./src/Services/AbstractSendService.php)
 - extend [ConversionSenderFactory](./src/Factories/ConversionSenderFactory.php) with your sender
 - add documentation for configuring new CPA network
 

@@ -2,7 +2,9 @@
 
 namespace Wearesho\Bobra\Cpa\Records;
 
+use Carbon\Carbon;
 use Horat1us\Yii\Validators\ConstRangeValidator;
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -13,11 +15,25 @@ use yii\db\ActiveRecord;
  * @property string $user_id [integer]
  * @property string $source
  * @property array $config [JSON]
+ * @property string $created_at
  */
 class UserLead extends ActiveRecord
 {
     public const SOURCE_SALES_DOUBLER = 'salesDoubler';
     public const SOURCE_LOAN_GATE = 'loanGate';
+
+    public function behaviors()
+    {
+        return [
+            'ts' => [
+                'class' => TimestampBehavior::class,
+                'updatedAtAttribute' => null,
+                'value' => function (): string {
+                    return Carbon::now()->toDateTimeString();
+                },
+            ],
+        ];
+    }
 
     public function rules()
     {
@@ -27,6 +43,7 @@ class UserLead extends ActiveRecord
             ['source', 'string',],
             ['source', ConstRangeValidator::class,],
             ['config', 'safe',],
+            ['created_at', 'date', 'format' => 'php:Y-m-d H:i:s',],
         ];
     }
 }

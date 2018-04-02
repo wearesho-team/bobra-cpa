@@ -2,6 +2,9 @@
 
 namespace Wearesho\Bobra\Cpa\Records;
 
+use Carbon\Carbon;
+
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -14,11 +17,25 @@ use yii\db\ActiveRecord;
  * @property string $conversion_id
  * @property array $request [JSON]
  * @property array $response [JSON]
+ * @property string $created_at
  *
  * @property UserLead $lead
  */
 class UserLeadConversion extends ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            'ts' => [
+                'class' => TimestampBehavior::class,
+                'updatedAtAttribute' => null,
+                'value' => function (): string {
+                    return Carbon::now()->toDateTimeString();
+                },
+            ],
+        ];
+    }
+
     public function rules()
     {
         return [
@@ -30,6 +47,7 @@ class UserLeadConversion extends ActiveRecord
             ['conversion_id', 'string',],
             [['request', 'response'], 'safe',],
             [['conversion_id'], 'unique',],
+            ['created_at', 'date', 'format' => 'php:Y-m-d H:i:s',],
         ];
     }
 

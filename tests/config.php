@@ -5,17 +5,20 @@ use yii\db\Connection;
 
 $localConfig = __DIR__ . DIRECTORY_SEPARATOR . 'config-local.php';
 
-$dsn = getenv('DB_TYPE') . ":host=" . getenv("DB_HOST") . ";dbname=" . getenv("DB_NAME");
+$dbType = getenv('DB_TYPE') ?: 'pgsql';
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbName = getenv('DB_NAME') ?: 'bobra_cpa';
+
+$dsn = "{$dbType}:host={$dbHost};dbname={$dbName}";
 
 $config = [
-    'class' => \yii\web\Application::class,
     'id' => 'yii2-advanced-package',
     'basePath' => dirname(__DIR__),
     'components' => [
         'db' => [
             'class' => Connection::class,
             'dsn' => $dsn,
-            'username' => getenv('DB_USER'),
+            'username' => getenv('DB_USER') ?: 'postgres',
             'password' => getenv('DB_PASS') ?: '',
         ],
         'user' => [

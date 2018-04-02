@@ -11,6 +11,7 @@ use Wearesho\Bobra\Cpa\Records\UserLead;
 use Wearesho\Bobra\Cpa\Records\UserLeadConversion;
 
 use yii\base\Component;
+use yii\caching\CacheInterface;
 
 /**
  * Class ConversionService
@@ -106,7 +107,12 @@ class ConversionService extends Component
             \Yii::warning("Trying to send conversion without logged in user", static::class);
             return;
         }
-        $lead = UserLead::find()->andWhere(['=', 'user_id', $user])->one();
+
+        $lead = UserLead::find()
+            ->andWhere(['=', 'user_id', $user])
+            ->orderBy(['created_at' => SORT_DESC])
+            ->one();
+
         if (!$lead instanceof UserLead) {
             return;
         }

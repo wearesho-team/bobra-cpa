@@ -18,17 +18,18 @@ $config = [
         'migrate' => [
             'class' => MigrateController::class,
             'migrationNamespaces' => [
-                'Horat1us\\Package\\Migrations',
+                'Wearesho\\Bobra\\Cpa\\Migrations',
             ],
             'migrationPath' => null,
         ],
         'fixture' => [
             'class' => FixtureController::class,
-            'namespace' => 'Horat1us\\Package\\Tests\\Fixtures',
+            'namespace' => 'Wearesho\\Bobra\\Cpa\\Tests\\Fixtures',
         ]
     ],
 ];
 
-$application = new Application(ArrayHelper::merge($testsConfig, $config));
+$appConfig = ArrayHelper::merge($testsConfig, $config);
+$application = new Application($appConfig);
 $exitCode = $application->run();
 exit($exitCode);
