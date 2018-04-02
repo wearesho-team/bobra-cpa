@@ -67,6 +67,10 @@ Run tests:
 ## Configuration
 This package can be configured using `getenv` function. Available settings:
 - **SALES_DOUBLER_TOKEN** - token for request URI for SalesDoubler
+- **DO_AFFILIATE_PATH** - path for DoAffiliate API
+(example: *pozichka-ua* in http://tracker2.doaffiliate.net/api/pozichka-ua)
+- **LOAN_GATE_GOAL** - (default: 1), goal in URL for LoanGate
+- **LOAN_GATE_SECRET** - secure in URL for LoanGate
 
 If one of key for some CPA network not set 
 postback requests for this network will not be done. 
@@ -77,6 +81,7 @@ To add new CPA network you have to:
 - add constant to [UserLead](./src/Records/UserLead.php) with CPA network name
 - create form that creates lead in [src/Http/Forms](./src/Http/Forms).
 It should use [LeadFormTrait](./src/Http/LeadFormTrait.php)
+- add your form to [LeadController](./src/Http/LeadController.php)
 - create send service in [src/Services](./src/Services)
 It have to implement [ConversionSenderInterface](./src/Interfaces/ConversionSenderInterface.php)
 and should extend [AbstractSendService](./src/Services/AbstractSendService.php)

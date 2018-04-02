@@ -10,7 +10,7 @@ use Wearesho\Yii\Http\Form;
  * Class LoanGate
  * @package Wearesho\Bobra\Cpa\Http\Forms
  */
-class LoanGate extends Form
+class LoanGateForm extends Form
 {
     use LeadFormTrait;
 

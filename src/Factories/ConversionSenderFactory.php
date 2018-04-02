@@ -4,6 +4,7 @@ namespace Wearesho\Bobra\Cpa\Factories;
 
 use Wearesho\Bobra\Cpa\Interfaces\ConversionSenderInterface;
 use Wearesho\Bobra\Cpa\Records\UserLead;
+use Wearesho\Bobra\Cpa\Services\DoAffiliateSendService;
 use Wearesho\Bobra\Cpa\Services\LoanGateSendService;
 use Wearesho\Bobra\Cpa\Services\SalesDoublerSendService;
 use yii\di\Instance;
@@ -25,6 +26,10 @@ class ConversionSenderFactory
                 'class' => LoanGateSendService::class,
                 'goal' => getenv(LoanGateSendService::ENV_GOAL_KEY) ?: 1,
                 'secure' => getenv(LoanGateSendService::ENV_SECURE_KEY),
+            ],
+            UserLead::SOURCE_DO_AFFILIATE => [
+                'class' => DoAffiliateSendService::class,
+                'path' => getenv(DoAffiliateSendService::ENV_PATH_KEY),
             ],
         ];
     }
