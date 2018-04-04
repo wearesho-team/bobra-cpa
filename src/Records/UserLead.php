@@ -23,6 +23,8 @@ class UserLead extends ActiveRecord
     public const SOURCE_LOAN_GATE = 'loanGate';
     public const SOURCE_DO_AFFILIATE = 'doAffiliate';
     public const SOURCE_FIN_LINE = 'finLine';
+    public const SOURCE_CASHKA = 'cashka';
+    public const SOURCE_ADMIT_AD = 'admitAd';
 
     public function behaviors()
     {
