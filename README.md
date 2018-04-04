@@ -5,9 +5,8 @@ Integrated:
 - DoAffiliate
 - LoanGate
 - FinLine
-
-To be integrated:
 - AdmitAd
+- Cashka
 
 ## Installation
 
