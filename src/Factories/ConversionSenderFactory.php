@@ -4,6 +4,8 @@ namespace Wearesho\Bobra\Cpa\Factories;
 
 use Wearesho\Bobra\Cpa\Interfaces\ConversionSenderInterface;
 use Wearesho\Bobra\Cpa\Records\UserLead;
+use Wearesho\Bobra\Cpa\Services\AdmitAdSendService;
+use Wearesho\Bobra\Cpa\Services\CashkaSendService;
 use Wearesho\Bobra\Cpa\Services\DoAffiliateSendService;
 use Wearesho\Bobra\Cpa\Services\FinLineSendService;
 use Wearesho\Bobra\Cpa\Services\LoanGateSendService;
@@ -33,6 +35,15 @@ class ConversionSenderFactory
                 'path' => getenv(DoAffiliateSendService::ENV_PATH_KEY),
             ],
             UserLead::SOURCE_FIN_LINE => FinLineSendService::class,
+            UserLead::SOURCE_CASHKA => [
+                'class' => CashkaSendService::class,
+                'path' => getenv(CashkaSendService::ENV_PATH_KEY),
+            ],
+            UserLead::SOURCE_ADMIT_AD => [
+                'class' => AdmitAdSendService::class,
+                'campaignCode' => getenv(AdmitAdSendService::ENV_CAMPAIGN_CODE),
+                'postbackKey' => getenv(AdmitAdSendService::ENV_POSTBACK_KEY),
+            ],
         ];
     }
 

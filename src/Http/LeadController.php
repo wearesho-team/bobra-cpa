@@ -2,6 +2,8 @@
 
 namespace Wearesho\Bobra\Cpa\Http;
 
+use Wearesho\Bobra\Cpa\Http\Forms\AdmitAdForm;
+use Wearesho\Bobra\Cpa\Http\Forms\CashkaForm;
 use Wearesho\Bobra\Cpa\Http\Forms\DoAffiliateForm;
 use Wearesho\Bobra\Cpa\Http\Forms\FinLineForm;
 use Wearesho\Bobra\Cpa\Http\Forms\LoanGateForm;
@@ -19,5 +21,7 @@ class LeadController extends Controller
         'loan-gate' => ['post' => LoanGateForm::class,],
         'do-affiliate' => ['post' => DoAffiliateForm::class,],
         'fin-line' => ['post' => FinLineForm::class,],
+        'cashka' => ['post' => CashkaForm::class,],
+        'admit-ad' => ['post' => AdmitAdForm::class,],
     ];
 }
