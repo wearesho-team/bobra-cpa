@@ -80,6 +80,9 @@ This package can be configured using `getenv` function. Available settings:
 (example: *pozichka-ua* in http://tracker2.doaffiliate.net/api/pozichka-ua)
 - **LOAN_GATE_GOAL** - (default: 1), goal in URL for LoanGate
 - **LOAN_GATE_SECRET** - secure in URL for LoanGate
+- **CASHKA_PATH** - unique path in URL for Cashka
+- **ADMITAD_POSTBACK_KEY** - postback key for AdmitAd
+- **ADMITAD_CAMPAIGN_CODE** - campaign code for AdmitAd
 
 If one of key for some CPA network not set 
 postback requests for this network will not be done. 
