@@ -25,6 +25,7 @@ abstract class AbstractSendService extends BaseObject implements ConversionSende
     public function __construct(ClientInterface $client, array $config = [])
     {
         parent::__construct($config);
+        $this->client = $client;
     }
 
     final public function send(string $conversion, array $params): PostbackTuple
