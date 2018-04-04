@@ -97,7 +97,7 @@ It should use [LeadFormTrait](./src/Http/LeadFormTrait.php)
 It have to implement [ConversionSenderInterface](./src/Interfaces/ConversionSenderInterface.php)
 and should extend [AbstractSendService](./src/Services/AbstractSendService.php)
 - extend [ConversionSenderFactory](./src/Factories/ConversionSenderFactory.php) with your sender
-- add documentation for configuring new CPA network
+- add documentation for configuring new CPA network, extend CPA networks list in README
 
 ## Structure
 
