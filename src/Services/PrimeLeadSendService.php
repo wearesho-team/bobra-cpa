@@ -5,6 +5,10 @@ namespace Wearesho\Bobra\Cpa\Services;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * Class PrimeLeadSendService
+ * @package Wearesho\Bobra\Cpa\Services
+ */
 class PrimeLeadSendService extends AbstractSendService
 {
     public const ENV_PATH_KEY = 'PRIME_LEAD_PATH';
