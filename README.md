@@ -7,6 +7,7 @@ Integrated:
 - FinLine
 - AdmitAd
 - Cashka
+- PrimeLead
 
 ## Installation
 
