@@ -21,7 +21,7 @@ class DoAffiliateSendService extends AbstractSendService
         $visitor = $params['visitor'] ?? null;
         $user = $params['user'] ?? null;
         $url = "http://tracker2.doaffiliate.net/api/{$this->path}?type=CPA&lead={$user}&sale={$conversion}&v={$visitor}";
-        return new Request("post", $url);
+        return new Request("get", $url);
     }
 
     public function isEnabled(): bool
