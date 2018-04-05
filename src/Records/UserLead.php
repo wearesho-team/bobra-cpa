@@ -25,6 +25,7 @@ class UserLead extends ActiveRecord
     public const SOURCE_FIN_LINE = 'finLine';
     public const SOURCE_CASHKA = 'cashka';
     public const SOURCE_ADMIT_AD = 'admitAd';
+    public const SOURCE_PRIME_LEAD = 'primeLead';
 
     public function behaviors()
     {

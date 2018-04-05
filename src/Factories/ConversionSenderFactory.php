@@ -9,6 +9,7 @@ use Wearesho\Bobra\Cpa\Services\CashkaSendService;
 use Wearesho\Bobra\Cpa\Services\DoAffiliateSendService;
 use Wearesho\Bobra\Cpa\Services\FinLineSendService;
 use Wearesho\Bobra\Cpa\Services\LoanGateSendService;
+use Wearesho\Bobra\Cpa\Services\PrimeLeadSendService;
 use Wearesho\Bobra\Cpa\Services\SalesDoublerSendService;
 use yii\di\Instance;
 
@@ -43,6 +44,10 @@ class ConversionSenderFactory
                 'class' => AdmitAdSendService::class,
                 'campaignCode' => getenv(AdmitAdSendService::ENV_CAMPAIGN_CODE),
                 'postbackKey' => getenv(AdmitAdSendService::ENV_POSTBACK_KEY),
+            ],
+            UserLead::SOURCE_PRIME_LEAD => [
+                'class' => PrimeLeadSendService::class,
+                'path' => getenv(PrimeLeadSendService::ENV_PATH_KEY),
             ],
         ];
     }

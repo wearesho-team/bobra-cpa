@@ -7,6 +7,7 @@ Integrated:
 - FinLine
 - AdmitAd
 - Cashka
+- PrimeLead
 
 ## Installation
 
@@ -82,6 +83,7 @@ This package can be configured using `getenv` function. Available settings:
 - **CASHKA_PATH** - unique path in URL for Cashka
 - **ADMITAD_POSTBACK_KEY** - postback key for AdmitAd
 - **ADMITAD_CAMPAIGN_CODE** - campaign code for AdmitAd
+- **PRIME_LEAD_PATH** - secret path in url for PrimeLead
 
 If one of key for some CPA network not set 
 postback requests for this network will not be done. 
