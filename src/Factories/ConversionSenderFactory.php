@@ -24,6 +24,7 @@ class ConversionSenderFactory
         return [
             UserLead::SOURCE_SALES_DOUBLER => [
                 'class' => SalesDoublerSendService::class,
+                'id' => getenv(SalesDoublerSendService::ENV_TOKEN_ID),
                 'token' => getenv(SalesDoublerSendService::ENV_TOKEN_KEY),
             ],
             UserLead::SOURCE_LOAN_GATE => [

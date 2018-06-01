@@ -11,7 +11,11 @@ use Psr\Http\Message\RequestInterface;
  */
 class SalesDoublerSendService extends AbstractSendService
 {
+    const ENV_TOKEN_ID = 'SALES_DOUBLER_ID';
     const ENV_TOKEN_KEY = 'SALES_DOUBLER_TOKEN';
+
+    /** @var int */
+    public $id;
 
     /** @var string */
     public $token;
@@ -22,13 +26,13 @@ class SalesDoublerSendService extends AbstractSendService
         $transId = $conversion;
         $token = $this->token;
 
-        $url = "http://rdr.salesdoubler.com.ua/in/postback/586/{$clickId}?trans_id={$transId}&token={$token}";
+        $url = "http://rdr.salesdoubler.com.ua/in/postback/{$this->id}/{$clickId}?trans_id={$transId}&token={$token}";
 
         return new Request('get', $url);
     }
 
     public function isEnabled(): bool
     {
-        return !empty($this->token);
+        return !empty($this->token) && !empty($this->id);
     }
 }

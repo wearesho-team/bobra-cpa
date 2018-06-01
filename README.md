@@ -75,6 +75,7 @@ Run tests:
 
 ## Configuration
 This package can be configured using `getenv` function. Available settings:
+- **SALES_DOUBLER_ID** - personal id for request to SalesDoubler
 - **SALES_DOUBLER_TOKEN** - token for request URI for SalesDoubler
 - **DO_AFFILIATE_PATH** - path for DoAffiliate API
 (example: *pozichka-ua* in http://tracker2.doaffiliate.net/api/pozichka-ua)
