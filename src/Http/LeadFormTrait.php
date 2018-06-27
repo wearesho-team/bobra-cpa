@@ -2,6 +2,7 @@
 
 namespace Wearesho\Bobra\Cpa\Http;
 
+use Carbon\Carbon;
 use Horat1us\Yii\Exceptions\ModelException;
 
 use Wearesho\Bobra\Cpa\CpaPermission;
@@ -48,10 +49,20 @@ trait LeadFormTrait
 
     final protected function save(string $source): UserLead
     {
-        $lead = new UserLead();
+        $lead = UserLead::find()
+            ->andWhere(['=', 'user_id', \Yii::$app->user->id,])
+            ->andWhere(['=', 'source', $source,])
+            ->one();
 
-        $lead->user_id = \Yii::$app->user->id;
-        $lead->source = $source;
+        if (!$lead instanceof UserLead) {
+            $lead = new UserLead([
+                'user_id' => \Yii::$app->user->id,
+                'source' => $source,
+            ]);
+        } else {
+            $lead->created_at = Carbon::now()->toDateTimeString();
+        }
+
         $lead->config = $this->getConfig();
 
         return ModelException::saveOrThrow($lead);
