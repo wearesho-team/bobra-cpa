@@ -16,49 +16,36 @@ Integrated:
 ```bash
 composer require wearesho-team/bobra-cpa
 ```
-- add to your `bootstrap.php`:
+- add to your config (`main.php`):
 ```php
 <?php
-// bootstrap.php
 
-Yii::setAlias(
-    '@Wearesho\Bobra\Cpa\Migrations', // your namespace here
-    "path-to-vendor/wearesho-team/bobra-cpa/migrations" // path to package migrations folder
-);
-```
-- add to your console `config.php`:
-```php
-<?php
-// console/config.php
-
-use yii\console\controllers\MigrateController;
+use Wearesho\Bobra\Cpa;
 
 return [
-    // some code
-    
-    'controllerMap' => [
-        'migrate' => [
-            'class' => MigrateController::class,
-            'migrationNamespaces' => [
-                'Wearesho\\Bobra\\Cpa\\Migrations',          
-            ],
+    // other configuration
+    'bootstrap' => [
+        // other bootstraps
+        'cpa' => [
+            'class' => Cpa\Bootstrap::class,
         ],
-    ],    
+    ],
 ];
 ```
 - add to your web configuration:
+
 ```php
 <?php
 
 use yii\base\Module;
-use Wearesho\Bobra\Cpa\Http\LeadController;
+use Wearesho\Bobra\Cpa;
 
 return [
     'modules' => [
         'index' => [
             'class' => Module::class,
             'controllerMap' => [
-                'lead' => LeadController::class,
+                'lead' => Cpa\Http\LeadController::class,
             ],
         ], 
     ],
