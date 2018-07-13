@@ -24,9 +24,20 @@ class AdmitAdSendService extends AbstractSendService
     {
         $uid = $params['uid'] ?? null;
 
+        $params = [
+            'campaign_code' => $this->campaignCode,
+            'postback' => 1,
+            'postback_key' => $this->postbackKey,
+            'action_code' => 2,
+            'uid' => $uid,
+            'order_id' => $conversion,
+            'tariff_code' => 1,
+            'payment_type' => 'sale',
+        ];
+
         return new Request(
             'get',
-            "https://ad.admitad.com/r?campaign_code={$this->campaignCode}&postback=1&postback_key={$this->postbackKey}&action_code=2&uid={$uid}&order_id={$conversion}&tariff_code=1&payment_type=sale"
+            "https://ad.admitad.com/r?" . http_build_query($params)
         );
     }
 
