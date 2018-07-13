@@ -25,8 +25,7 @@ class M180402184542AddTimestampToUserLeadTables extends Migration
                     'TIMESTAMP NULL DEFAULT NULL'
                 );
                 $this->execute("UPDATE $tableName SET created_at=:now;", ['now' => Carbon::now()->toDateTimeString()]);
-                $this->execute(
-                /** @lang PostgreSQL */
+                $this->execute(/** @lang PostgreSQL */
                     "ALTER TABLE $tableName ALTER COLUMN created_at SET NOT NULL"
                 );
             } else {
