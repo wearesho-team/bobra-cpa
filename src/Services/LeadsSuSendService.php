@@ -11,6 +11,8 @@ use GuzzleHttp\Psr7\Request;
  */
 class LeadsSuSendService extends AbstractSendService
 {
+    public const ENV_TOKEN_KEY = 'LEADS_SU_TOKEN';
+
     protected const STATUS_REJECTED = 'rejected';
     protected const STATUS_PENDING = 'pending';
     protected const STATUS_APPROVED = 'approved';
