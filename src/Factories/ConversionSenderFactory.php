@@ -8,6 +8,7 @@ use Wearesho\Bobra\Cpa\Services\AdmitAdSendService;
 use Wearesho\Bobra\Cpa\Services\CashkaSendService;
 use Wearesho\Bobra\Cpa\Services\DoAffiliateSendService;
 use Wearesho\Bobra\Cpa\Services\FinLineSendService;
+use Wearesho\Bobra\Cpa\Services\LeadsSuSendService;
 use Wearesho\Bobra\Cpa\Services\LoanGateSendService;
 use Wearesho\Bobra\Cpa\Services\PrimeLeadSendService;
 use Wearesho\Bobra\Cpa\Services\SalesDoublerSendService;
@@ -50,9 +51,18 @@ class ConversionSenderFactory
                 'class' => PrimeLeadSendService::class,
                 'path' => getenv(PrimeLeadSendService::ENV_PATH_KEY),
             ],
+            UserLead::SOURCE_LEADS_SU => [
+                'class' => LeadsSuSendService::class,
+                'token' => getenv(LeadsSuSendService::ENV_TOKEN_KEY),
+            ],
         ];
     }
 
+    /**
+     * @param string $source
+     * @return ConversionSenderInterface
+     * @throws \yii\base\InvalidConfigException
+     */
     public function instantiate(string $source): ConversionSenderInterface
     {
         $senders = $this->senders();
@@ -60,6 +70,7 @@ class ConversionSenderFactory
             throw new \InvalidArgumentException("Can not instantiate sender for $source");
         }
 
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return Instance::ensure($senders[$source], ConversionSenderInterface::class);
     }
 }
