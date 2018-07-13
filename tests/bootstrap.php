@@ -9,8 +9,8 @@ require_once(dirname(__DIR__) . '/vendor/autoload.php');
 require_once(dirname(__DIR__) . '/vendor/yiisoft/yii2/Yii.php');
 
 Yii::setAlias(
-    '@Wearesho/Bobra/Cpa/Migrations',
-    dirname(__DIR__) . DIRECTORY_SEPARATOR . "migrations"
+    '@Wearesho/Bobra/Cpa',
+    dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src'
 );
 Yii::setAlias('@configFile', __DIR__ . DIRECTORY_SEPARATOR . 'config.php');
 
