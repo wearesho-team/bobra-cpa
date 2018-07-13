@@ -8,6 +8,7 @@ Integrated:
 - AdmitAd
 - Cashka
 - PrimeLead
+- Leads.SU
 
 ## Installation
 
