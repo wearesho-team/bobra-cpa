@@ -1,11 +1,11 @@
 {
   "name": "wearesho-team/bobra-cpa",
-  "description": "Yii2 Advanced Package Template",
-  "type": "project",
+  "description": "CPA Networks integration",
+  "type": "library",
   "require": {
     "php": ">=7.2",
     "guzzlehttp/guzzle": "^6.3",
-    "horat1us/yii2-base": "^1.9",
+    "horat1us/yii2-base": "^1.13",
     "wearesho-team/yii-http": "^1.4",
     "yiisoft/yii2": "^2.0.14.2"
   },
