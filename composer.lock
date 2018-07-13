@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a26def605031d4aa1c04ed445b9d3272",
+    "content-hash": "362d1b1abca348566ab175bc20c0c210",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -452,16 +452,16 @@
         },
         {
             "name": "horat1us/yii2-base",
-            "version": "1.10.2",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Horat1us/yii2-base.git",
-                "reference": "fc6bbf1abccad2c92d39f79f2ab896e311e2227e"
+                "reference": "7b7d2d2faaef7dcdc7788d869861bb4b4b7b7eed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Horat1us/yii2-base/zipball/fc6bbf1abccad2c92d39f79f2ab896e311e2227e",
-                "reference": "fc6bbf1abccad2c92d39f79f2ab896e311e2227e",
+                "url": "https://api.github.com/repos/Horat1us/yii2-base/zipball/7b7d2d2faaef7dcdc7788d869861bb4b4b7b7eed",
+                "reference": "7b7d2d2faaef7dcdc7788d869861bb4b4b7b7eed",
                 "shasum": ""
             },
             "require": {
@@ -497,7 +497,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2018-03-21T12:54:39+00:00"
+            "time": "2018-07-02T10:56:29+00:00"
         },
         {
             "name": "nesbot/carbon",
