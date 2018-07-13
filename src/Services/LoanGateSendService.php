@@ -23,7 +23,15 @@ class LoanGateSendService extends AbstractSendService
     protected function getRequest(string $conversion, array $params): RequestInterface
     {
         $clickId = $params['afclick'] ?? null;
-        $url = "http://offers.loangate.affise.com/postback?clickid={$clickId}&action_id={$conversion}&goal={$this->goal}&secure={$this->secure}";
+
+        $params = [
+            'clickId' => $clickId,
+            'action_id' => $conversion,
+            'goal' => $this->goal,
+            'secure' => $this->secure,
+        ];
+
+        $url = "http://offers.loangate.affise.com/postback?" . http_build_query($params);
         return new Request("get", $url);
     }
 
