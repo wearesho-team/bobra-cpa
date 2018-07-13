@@ -2,13 +2,7 @@
 
 namespace Wearesho\Bobra\Cpa\Http;
 
-use Wearesho\Bobra\Cpa\Http\Forms\AdmitAdForm;
-use Wearesho\Bobra\Cpa\Http\Forms\CashkaForm;
-use Wearesho\Bobra\Cpa\Http\Forms\DoAffiliateForm;
-use Wearesho\Bobra\Cpa\Http\Forms\FinLineForm;
-use Wearesho\Bobra\Cpa\Http\Forms\LoanGateForm;
-use Wearesho\Bobra\Cpa\Http\Forms\PrimeLeadForm;
-use Wearesho\Bobra\Cpa\Http\Forms\SalesDoublerForm;
+use Wearesho\Bobra\Cpa\Http\Forms;
 use Wearesho\Yii\Http\Controller;
 
 /**
@@ -18,12 +12,13 @@ use Wearesho\Yii\Http\Controller;
 class LeadController extends Controller
 {
     public $actions = [
-        'sales-doubler' => ['post' => SalesDoublerForm::class,],
-        'loan-gate' => ['post' => LoanGateForm::class,],
-        'do-affiliate' => ['post' => DoAffiliateForm::class,],
-        'fin-line' => ['post' => FinLineForm::class,],
-        'cashka' => ['post' => CashkaForm::class,],
-        'admit-ad' => ['post' => AdmitAdForm::class,],
-        'prime-lead' => ['post' => PrimeLeadForm::class,],
+        'sales-doubler' => ['post' => Forms\SalesDoublerForm::class,],
+        'loan-gate' => ['post' => Forms\LoanGateForm::class,],
+        'do-affiliate' => ['post' => Forms\DoAffiliateForm::class,],
+        'fin-line' => ['post' => Forms\FinLineForm::class,],
+        'cashka' => ['post' => Forms\CashkaForm::class,],
+        'admit-ad' => ['post' => Forms\AdmitAdForm::class,],
+        'prime-lead' => ['post' => Forms\PrimeLeadForm::class,],
+        'leads-su' => ['post' => Forms\LeadsSuForm::class,],
     ];
 }
