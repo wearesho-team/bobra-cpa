@@ -70,7 +70,8 @@ trait LeadFormTrait
 
     abstract protected function getSource(): string;
 
-    protected function getConfig(): array {
+    protected function getConfig(): array
+    {
         return $this->getAttributes();
     }
 }
