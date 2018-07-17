@@ -25,7 +25,7 @@ class LoanGateSendService extends AbstractSendService
         $clickId = $params['afclick'] ?? null;
 
         $params = [
-            'clickId' => $clickId,
+            'clickid' => $clickId,
             'action_id' => $conversion,
             'goal' => $this->goal,
             'secure' => $this->secure,
