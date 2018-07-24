@@ -1,4 +1,6 @@
 # Bobra CPA Integrations
+[![Build Status](https://travis-ci.org/wearesho-team/bobra-cpa.svg?branch=master)](https://travis-ci.org/wearesho-team/bobra-cpa)
+[![codecov](https://codecov.io/gh/wearesho-team/bobra-cpa/branch/master/graph/badge.svg)](https://codecov.io/gh/wearesho-team/bobra-cpa)
 
 ## Integrated
 - [SalesDoubler](./src/SalesDoubler)

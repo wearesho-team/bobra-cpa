@@ -29,28 +29,28 @@ class ControllerTest extends Cpa\Tests\AbstractTestCase
             'enableCookieValidation' => false,
         ]));
         $this->app->set('response', new web\Response);
+        $this->app->set('user', new class extends web\User
+        {
+            public $enableSession = false;
+
+            public function init()
+            {
+            }
+
+            public function getId()
+            {
+                return ControllerTest::USER_ID;
+            }
+        });
         $this->controller = new Cpa\Web\Controller(
             'test',
-            new base\Module('module'),
-            [
-                'user' => new class extends web\User
-                {
-                    public function init()
-                    {
-                    }
-
-                    public function getId()
-                    {
-                        return ControllerTest::USER_ID;
-                    }
-                },
-            ]
+            new base\Module('module')
         );
     }
 
     public function testBeforeActionResponseFormat(): void
     {
-        $this->controller->beforeAction('any');
+        $this->controller->beforeAction(new base\Action('id', $this->controller));
         $this->assertEquals(
             \Yii::$app->response->format,
             web\Response::FORMAT_JSON

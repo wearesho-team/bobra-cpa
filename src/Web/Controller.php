@@ -3,7 +3,9 @@
 namespace Wearesho\Bobra\Cpa\Web;
 
 use Carbon\Carbon;
+use Horat1us\Yii\Behaviors\OptionsRequestBehavior;
 use Horat1us\Yii\Exceptions\ModelException;
+use yii\filters;
 use yii\helpers;
 use yii\web;
 use yii\di;
@@ -42,6 +44,34 @@ class Controller extends web\Controller
     {
         parent::init();
         $this->user = di\Instance::ensure($this->user, web\User::class);
+    }
+
+    public function behaviors(): array
+    {
+        return [
+            'access' => [
+                'class' => filters\AccessControl::class,
+                'rules' => [
+                    [
+                        'class' => filters\AccessRule::class,
+                        'actions' => ['index',],
+                        'roles' => [Cpa\Permissions::CREATE_LEADS,],
+                    ],
+                ],
+            ],
+            'verb' => [
+                'class' => filters\VerbFilter::class,
+                'actions' => [
+                    'index' => ['post', 'options',],
+                ],
+            ],
+            'cors' => [
+                'class' => filters\Cors::class,
+            ],
+            'options' => [
+                'class' => OptionsRequestBehavior::class,
+            ],
+        ];
     }
 
     /**
