@@ -21,7 +21,7 @@ after_success:
 
 env:
     - DB_TYPE: mysql
-    - DB_HOST: localhost
-    - DB_USER: root
-    - DB_NAME: bobra_cpa
-    - DB_PASS:
+      DB_HOST: localhost
+      DB_USER: root
+      DB_NAME: bobra_cpa
+      DB_PASS:
