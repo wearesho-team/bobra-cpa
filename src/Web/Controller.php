@@ -53,16 +53,6 @@ class Controller extends web\Controller
     public function behaviors(): array
     {
         return [
-            'access' => [
-                'class' => filters\AccessControl::class,
-                'rules' => [
-                    [
-                        'class' => filters\AccessRule::class,
-                        'actions' => ['index',],
-                        'roles' => [Cpa\Permissions::CREATE_LEADS,],
-                    ],
-                ],
-            ],
             'verb' => [
                 'class' => filters\VerbFilter::class,
                 'actions' => [
@@ -74,6 +64,16 @@ class Controller extends web\Controller
             ],
             'options' => [
                 'class' => OptionsRequestBehavior::class,
+            ],
+            'access' => [
+                'class' => filters\AccessControl::class,
+                'rules' => [
+                    [
+                        'class' => filters\AccessRule::class,
+                        'actions' => ['index',],
+                        'roles' => [Cpa\Permissions::CREATE_LEADS,],
+                    ],
+                ],
             ],
         ];
     }
