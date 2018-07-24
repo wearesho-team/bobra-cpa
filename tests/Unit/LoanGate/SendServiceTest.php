@@ -44,7 +44,7 @@ class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
             $tuple->getRequest()->getMethod()
         );
         $this->assertEquals(
-            'http://offers.loangate.affise.com/postback?clickId=20&action_id=10&goal=30&secure=testSecure',
+            'http://offers.loangate.affise.com/postback?clickid=20&action_id=10&goal=30&secure=testSecure',
             (string)$tuple->getRequest()->getUri()
         );
     }
