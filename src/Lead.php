@@ -3,6 +3,7 @@
 namespace Wearesho\Bobra\Cpa;
 
 use Carbon\Carbon;
+use Horat1us\Yii\Validators\ConstRangeValidator;
 use yii\behaviors\TimestampBehavior;
 use yii\db;
 
@@ -38,7 +39,6 @@ class Lead extends db\ActiveRecord
 
     public function rules(): array
     {
-        // todo: add source const validator
         return [
             [['user_id', 'source', 'config'], 'required',],
             [['user_id'], 'integer',],

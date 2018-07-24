@@ -6,7 +6,7 @@ namespace Wearesho\Bobra\Cpa;
  * Interface CpaPermission
  * @package Wearesho\Bobra\Cpa
  */
-interface CpaPermission
+interface Permissions
 {
     /** Usually only clients can create leads */
     const CREATE_LEADS = 'createLead';
