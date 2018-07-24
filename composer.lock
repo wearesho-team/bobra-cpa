@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5668609c1d0454e0f98a4c32d552ebe5",
+    "content-hash": "c9a0fa314a7325e826ab190716fdef21",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -451,17 +451,57 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
-            "name": "horat1us/yii2-base",
-            "version": "1.13.0",
+            "name": "horat1us/environment-config",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Horat1us/yii2-base.git",
-                "reference": "7b7d2d2faaef7dcdc7788d869861bb4b4b7b7eed"
+                "url": "https://github.com/Horat1us/environment-config.git",
+                "reference": "1b0e74bdf2f78363b2cd511fc249d8fc86ac5149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Horat1us/yii2-base/zipball/7b7d2d2faaef7dcdc7788d869861bb4b4b7b7eed",
-                "reference": "7b7d2d2faaef7dcdc7788d869861bb4b4b7b7eed",
+                "url": "https://api.github.com/repos/Horat1us/environment-config/zipball/1b0e74bdf2f78363b2cd511fc249d8fc86ac5149",
+                "reference": "1b0e74bdf2f78363b2cd511fc249d8fc86ac5149",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.1",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Horat1us\\Environment\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Letnikow",
+                    "email": "reclamme@gmail.com"
+                }
+            ],
+            "description": "Environment Config class",
+            "time": "2018-04-20T13:53:09+00:00"
+        },
+        {
+            "name": "horat1us/yii2-base",
+            "version": "1.13.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Horat1us/yii2-base.git",
+                "reference": "1965007efa66e902f3512994440be17e11bd6e2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Horat1us/yii2-base/zipball/1965007efa66e902f3512994440be17e11bd6e2a",
+                "reference": "1965007efa66e902f3512994440be17e11bd6e2a",
                 "shasum": ""
             },
             "require": {
@@ -497,7 +537,49 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2018-07-02T10:56:29+00:00"
+            "time": "2018-07-24T10:57:33+00:00"
+        },
+        {
+            "name": "horat1us/yii2-environment-config",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Horat1us/yii2-environment-config.git",
+                "reference": "28785f24fdd265a6369feb2dfef218db51a48ad5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Horat1us/yii2-environment-config/zipball/28785f24fdd265a6369feb2dfef218db51a48ad5",
+                "reference": "28785f24fdd265a6369feb2dfef218db51a48ad5",
+                "shasum": ""
+            },
+            "require": {
+                "horat1us/environment-config": "^1.2",
+                "php": ">=7.1",
+                "yiisoft/yii2": "^2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.2",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Horat1us\\Environment\\Yii2\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Letnikow",
+                    "email": "reclamme@gmail.com"
+                }
+            ],
+            "description": "Yii2 environment-config integration",
+            "time": "2018-06-27T11:54:25+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -662,6 +744,55 @@
             "time": "2018-01-30T19:27:44+00:00"
         },
         {
+            "name": "symfony/process",
+            "version": "v4.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "1d1677391ecf00d1c5b9482d6050c0c27aa3ac3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/1d1677391ecf00d1c5b9482d6050c0c27aa3ac3a",
+                "reference": "1d1677391ecf00d1c5b9482d6050c0c27aa3ac3a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-05-31T10:17:53+00:00"
+        },
+        {
             "name": "symfony/translation",
             "version": "v3.4.4",
             "source": {
@@ -728,51 +859,6 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "time": "2018-01-18T22:16:57+00:00"
-        },
-        {
-            "name": "wearesho-team/yii-http",
-            "version": "1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wearesho-team/yii-http.git",
-                "reference": "29e7d60fcd8137dbc9c6fa019dea3736d015c9d1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wearesho-team/yii-http/zipball/29e7d60fcd8137dbc9c6fa019dea3736d015c9d1",
-                "reference": "29e7d60fcd8137dbc9c6fa019dea3736d015c9d1",
-                "shasum": ""
-            },
-            "require": {
-                "horat1us/yii2-base": "^1.8.1",
-                "php": ">=7.1",
-                "yiisoft/yii2": "~2.0.13"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.3"
-            },
-            "type": "proprietary",
-            "autoload": {
-                "psr-4": {
-                    "Wearesho\\Yii\\Http\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Letnikow",
-                    "email": "reclamme@gmail.com"
-                }
-            ],
-            "keywords": [
-                "http",
-                "wearesho",
-                "yii"
-            ],
-            "time": "2018-02-20T11:35:10+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -923,6 +1009,90 @@
                 "yii2"
             ],
             "time": "2016-12-20T13:26:02+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-queue",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-queue.git",
+                "reference": "d04b4b3c932081200876a351cc6c3502e89e11b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/d04b4b3c932081200876a351cc6c3502e89e11b8",
+                "reference": "d04b4b3c932081200876a351cc6c3502e89e11b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "symfony/process": "*",
+                "yiisoft/yii2": "~2.0.14"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": ">=2.4",
+                "enqueue/amqp-lib": "^0.8",
+                "jeremeamia/superclosure": "*",
+                "pda/pheanstalk": "*",
+                "php-amqplib/php-amqplib": "*",
+                "phpunit/phpunit": "~4.4",
+                "yiisoft/yii2-debug": "*",
+                "yiisoft/yii2-gii": "*",
+                "yiisoft/yii2-redis": "*"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Need for aws SQS.",
+                "enqueue/amqp-lib": "Need for AMQP interop queue.",
+                "ext-gearman": "Need for Gearman queue.",
+                "ext-pcntl": "Need for process signals.",
+                "pda/pheanstalk": "Need for Beanstalk queue.",
+                "php-amqplib/php-amqplib": "Need for AMQP queue.",
+                "yiisoft/yii2-redis": "Need for Redis queue."
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\queue\\": "src",
+                    "yii\\queue\\amqp\\": "src/drivers/amqp",
+                    "yii\\queue\\amqp_interop\\": "src/drivers/amqp_interop",
+                    "yii\\queue\\beanstalk\\": "src/drivers/beanstalk",
+                    "yii\\queue\\db\\": "src/drivers/db",
+                    "yii\\queue\\file\\": "src/drivers/file",
+                    "yii\\queue\\gearman\\": "src/drivers/gearman",
+                    "yii\\queue\\redis\\": "src/drivers/redis",
+                    "yii\\queue\\sync\\": "src/drivers/sync",
+                    "yii\\queue\\sqs\\": "src/drivers/sqs"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Zhuravlev",
+                    "email": "zhuravljov@gmail.com"
+                }
+            ],
+            "description": "Yii2 Queue Extension which supported DB, Redis, RabbitMQ, Beanstalk, SQS and Gearman",
+            "keywords": [
+                "async",
+                "beanstalk",
+                "db",
+                "gearman",
+                "gii",
+                "queue",
+                "rabbitmq",
+                "redis",
+                "sqs",
+                "yii"
+            ],
+            "time": "2018-05-23T21:04:57+00:00"
         }
     ],
     "packages-dev": [
