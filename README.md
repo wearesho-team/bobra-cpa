@@ -1,68 +1,52 @@
-# Bobra CPA Connection (back-end)
+# Bobra CPA Integrations
 
-Integrated:
-- SalesDoubler
-- DoAffiliate
-- LoanGate
-- FinLine
-- AdmitAd
-- Cashka
-- PrimeLead
-- Leads.SU
+## Integrated
+- [SalesDoubler](./src/SalesDoubler)
+- [DoAffiliate](./src/DoAffiliate)
+- [LoanGate](./src/LoanGate)
+- [FinLine](./src/FinLine)
+- [AdmitAd](./src/AdmitAd)
+- [Cashka](./src/Cashka)
+- [PrimeLead](./src/PrimeLead)
+- [Leads.SU](./src/LeadsSu)
 
-## Installation
-
-### As dependency
+## Usage
+### Installation
 - install using composer
 ```bash
 composer require wearesho-team/bobra-cpa
 ```
-- add to your config (`main.php`):
+
+### Configuration
+- Append [Bootstrap](./src/Bootstrap.php) to your applications bootstraps.  
+*Note: if you have queue configured before this bootstrap
+[Conversion\Queue\Service](./src/Conversion/Queue/Service.php) will be used*
+- Add [Web\Controller](./src/Web/Controller.php) to your application web controller map
+(if you want to create leads)
+- Use [Conversion\ServiceInterface](./src/ConversionInterface.php) from container
+to register conversions:
 ```php
 <?php
 
 use Wearesho\Bobra\Cpa;
 
-return [
-    // other configuration
-    'bootstrap' => [
-        // other bootstraps
-        'cpa' => [
-            'class' => Cpa\Bootstrap::class,
-        ],
-    ],
-];
-```
-- add to your web configuration:
+$lead = Cpa\Lead::find()
+    ->andWhere(['=', 'user_id', \Yii::$app->user->id])
+    ->andWhere(['=', 'product', 'current_product_code'])
+    ->one();
 
-```php
-<?php
+if($lead instanceof Cpa\Lead) {
+    return;
+}
 
-use yii\base\Module;
-use Wearesho\Bobra\Cpa;
-
-return [
-    'modules' => [
-        'index' => [
-            'class' => Module::class,
-            'controllerMap' => [
-                'lead' => Cpa\Http\LeadController::class,
-            ],
-        ], 
-    ],
-];
-```
-- Configure environment variables
-
-
-## Tests
-Run tests:
-```bash
-./vendor/bin/phpunit
+/** @var Cpa\Conversion\ServiceInterface $service */
+$service = \Yii::$container->get(Cpa\Conversion\ServiceInterface::class);
+$service->register($lead, 'conversionId');
 ```
 
-## Configuration
-This package can be configured using `getenv` function. Available settings:
+### Environment
+This package can be configured by environment variables out-of-box:
+
 - **SALES_DOUBLER_ID** - personal id for request to SalesDoubler
 - **SALES_DOUBLER_TOKEN** - token for request URI for SalesDoubler
 - **DO_AFFILIATE_PATH** - path for DoAffiliate API
@@ -79,28 +63,33 @@ If one of key for some CPA network not set
 postback requests for this network will not be done. 
 
 
-## Add new CPA
+## Contribution
+### Add new CPA
 To add new CPA network you have to:
-- add constant to [UserLead](./src/Records/UserLead.php) with CPA network name
-- create form that creates lead in [src/Http/Forms](./src/Http/Forms).
-It should use [LeadFormTrait](./src/Http/LeadFormTrait.php)
-- add your form to [LeadController](./src/Http/LeadController.php)
-- create send service in [src/Services](./src/Services)
-It have to implement [ConversionSenderInterface](./src/Interfaces/ConversionSenderInterface.php)
-and should extend [AbstractSendService](./src/Services/AbstractSendService.php)
-- extend [ConversionSenderFactory](./src/Factories/ConversionSenderFactory.php) with your sender
-- add documentation for configuring new CPA network, extend CPA networks list in README
+- add constant to [Lead\Source](./src/Lead/Source.php) interface
+- implement model for lead creating
+(example [DoAffiliate\LeadModel](./src/DoAffiliate/LeadModel.php)
+- add source to [Web\Controller](./src/Web/Controller.php) sources configuration
+- implement [Conversion\SendServiceInterface](./src/Conversion/SendServiceInterface.php)
+using [Conversion\SendServiceTrait](./src/Conversion/SendServiceTrait.php)
+(example [DoAffiliate\SendService](./src/DoAffiliate/SendService.php))
+- add send service to [Conversion\Service](src/Conversion/Sync/Service.php)
+senders configuration
+- add tests for implemented classes
+- extend CPA networks list in [README](./README.md#Integrated)
+- if use environment configuration extend configuration block in [README](./README.md#Configuration)
 
-## Structure
-
+### Tests
+Run tests:
+```bash
+composer test
 ```
-migrations/     contains namespaced migrations (using Yii2 namespace autoloader)
-src/            contains all source files (using composer autoloader)
-tests/
-    Mocks/          contains mocks for tests
-    Fixtures/       contains Yii2 fixtures
-    Unit/           contains PHPUnit tests 
-vendor/                  contains dependent 3rd-party packages
+
+### Linting
+This project uses PSR-2 for code style.
+To check use:
+```bash
+composer lint
 ```
 
 ## Contributors
