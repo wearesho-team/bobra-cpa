@@ -4,8 +4,10 @@
 
 require_once(dirname(__DIR__) . '/vendor/autoload.php');
 
-$dotEnv = new \Dotenv\Dotenv(dirname(__DIR__));
-$dotEnv->load();
+if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env')) {
+    $dotEnv = new \Dotenv\Dotenv(dirname(__DIR__));
+    $dotEnv->load();
+}
 
 defined('YII_DEBUG') || define("YII_DEBUG", getenv("YII_DEBUG") ?: true);
 defined('YII_ENV') || define("YII_ENV", getenv("YII_ENV") ?: "test");
