@@ -21,10 +21,6 @@ $config = [
             'username' => getenv('DB_USER') ?: 'postgres',
             'password' => getenv('DB_PASS') ?: '',
         ],
-        'user' => [
-            'class' => \yii\web\User::class,
-            'identityClass' => \Wearesho\Bobra\Cpa\Tests\Unit\Mocks\UserMock::class,
-        ]
     ],
 ];
 
