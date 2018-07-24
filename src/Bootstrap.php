@@ -21,7 +21,7 @@ class Bootstrap implements base\BootstrapInterface
     public function bootstrap($app)
     {
         $app->setAliases([
-            '@Wearesho\Bobra\Cpa' => '@vendor/wearesho-team/bobra-cpa',
+            '@Wearesho/Bobra/Cpa' => '@vendor/wearesho-team/bobra-cpa/src',
         ]);
 
         if ($app instanceof console\Application) {
