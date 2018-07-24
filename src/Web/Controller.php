@@ -53,9 +53,6 @@ class Controller extends web\Controller
     public function behaviors(): array
     {
         return [
-            'authenticator' => [
-                'class' => filters\auth\HttpBearerAuth::class,
-            ],
             'verb' => [
                 'class' => filters\VerbFilter::class,
                 'actions' => [
@@ -67,6 +64,9 @@ class Controller extends web\Controller
             ],
             'options' => [
                 'class' => OptionsRequestBehavior::class,
+            ],
+            'authenticator' => [
+                'class' => filters\auth\HttpBearerAuth::class,
             ],
             'access' => [
                 'class' => filters\AccessControl::class,
