@@ -3,6 +3,7 @@
 namespace Wearesho\Bobra\Cpa;
 
 use Horat1us\Yii\Traits\BootstrapMigrations;
+use Wearesho\Bobra\Cpa;
 use yii\base;
 use yii\console;
 
@@ -29,5 +30,12 @@ class Bootstrap implements base\BootstrapInterface
                 'Wearesho\\Bobra\\Cpa\\Migrations'
             );
         }
+
+        \Yii::$container->set(
+            Cpa\Conversion\ServiceInterface::class,
+            $app->has('queue')
+                ? Cpa\Conversion\Queue\Service::class
+                : Cpa\Conversion\Sync\Service::class
+        );
     }
 }
