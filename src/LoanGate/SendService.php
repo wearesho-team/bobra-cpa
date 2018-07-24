@@ -35,7 +35,7 @@ class SendService extends base\BaseObject implements Cpa\Conversion\SendServiceI
         $clickId = $conversion->getConfig()['afclick'] ?? null;
 
         $params = [
-            'clickId' => $clickId,
+            'clickid' => $clickId,
             'action_id' => $conversion->getId(),
             'goal' => $this->config->getGoal($conversion->getProduct()),
             'secure' => $this->config->getSecure($conversion->getProduct()),
