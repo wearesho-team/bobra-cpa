@@ -75,6 +75,7 @@ class Controller extends web\Controller
                         'class' => filters\AccessRule::class,
                         'actions' => ['index',],
                         'roles' => [Cpa\Permissions::CREATE_LEADS,],
+                        'allow' => true,
                     ],
                 ],
             ],
