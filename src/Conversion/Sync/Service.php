@@ -15,10 +15,43 @@ class Service implements Cpa\Conversion\ServiceInterface
 {
     /** @var array[]|string[]|Cpa\Conversion\SendServiceInterface[] definitions */
     public $senders = [
+        Cpa\Lead\Source::SALES_DOUBLER => [
+            'class' => Cpa\SalesDoubler\SendService::class,
+            'config' => [
+                'class' => Cpa\SalesDoubler\EnvironmentConfig::class,
+            ],
+        ],
         Cpa\Lead\Source::DO_AFFILIATE => [
             'class' => Cpa\DoAffiliate\SendService::class,
             'config' => [
                 'class' => Cpa\DoAffiliate\EnvironmentConfig::class,
+            ],
+        ],
+        Cpa\Lead\Source::LOAN_GATE => [
+            'class' => Cpa\LoanGate\SendService::class,
+            'config' => [
+                'class' => Cpa\LoanGate\EnvironmentConfig::class,
+            ],
+        ],
+        Cpa\Lead\Source::FIN_LINE => [
+            'class' => Cpa\FinLine\SendService::class,
+        ],
+        Cpa\Lead\Source::ADMIT_AD => [
+            'class' => Cpa\AdmitAd\SendService::class,
+            'config' => [
+                'class' => Cpa\AdmitAd\EnvironmentConfig::class,
+            ],
+        ],
+        Cpa\Lead\Source::CASHKA => [
+            'class' => Cpa\Cashka\SendService::class,
+            'config' => [
+                'class' => Cpa\Cashka\EnvironmentConfig::class,
+            ],
+        ],
+        Cpa\Lead\Source::PRIME_LEAD => [
+            'class' => Cpa\PrimeLead\SendService::class,
+            'config' => [
+                'class' => Cpa\PrimeLead\EnvironmentConfig::class,
             ],
         ],
         Cpa\Lead\Source::LEADS_SU => [

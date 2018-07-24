@@ -22,9 +22,13 @@ class Controller extends web\Controller
      * @var array[]|string[]|Cpa\DoAffiliate\LeadModel[] definitions
      */
     public $sources = [
+        Cpa\Lead\Source::SALES_DOUBLER => Cpa\SalesDoubler\LeadModel::class,
         Cpa\Lead\Source::DO_AFFILIATE => Cpa\DoAffiliate\LeadModel::class,
-        Cpa\Lead\Source::ADMIT_AD => Cpa\AdmitAd\LeadModel::class,
+        Cpa\Lead\Source::LOAN_GATE => Cpa\LoanGate\LeadModel::class,
         Cpa\Lead\Source::FIN_LINE => Cpa\FinLine\LeadModel::class,
+        Cpa\Lead\Source::ADMIT_AD => Cpa\AdmitAd\LeadModel::class,
+        Cpa\Lead\Source::CASHKA => Cpa\Cashka\LeadModel::class,
+        Cpa\Lead\Source::PRIME_LEAD => Cpa\PrimeLead\LeadModel::class,
         Cpa\Lead\Source::LEADS_SU => Cpa\LeadsSu\LeadModel::class,
     ];
 
