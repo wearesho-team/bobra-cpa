@@ -50,6 +50,7 @@ class ControllerTest extends Cpa\Tests\AbstractTestCase
 
     public function testBeforeActionResponseFormat(): void
     {
+        $this->controller->detachBehavior('authenticator');
         $this->controller->beforeAction(new base\Action('id', $this->controller));
         $this->assertEquals(
             \Yii::$app->response->format,
