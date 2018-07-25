@@ -35,9 +35,9 @@ class SendService extends base\BaseObject implements Cpa\Conversion\SendServiceI
         $uid = $conversion->getConfig()['uid'] ?? null;
 
         $params = [
-            'campaign_code' => $this->config->getCampaignCode(),
+            'campaign_code' => $this->config->getCampaignCode($conversion->getProduct()),
             'postback' => 1,
-            'postback_key' => $this->config->getPostbackKey(),
+            'postback_key' => $this->config->getPostbackKey($conversion->getProduct()),
             'action_code' => 2,
             'uid' => $uid,
             'order_id' => $conversion->getId(),
