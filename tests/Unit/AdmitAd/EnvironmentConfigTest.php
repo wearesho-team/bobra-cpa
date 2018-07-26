@@ -44,4 +44,14 @@ class EnvironmentConfigTest extends TestCase
         $this->expectException(MissingEnvironmentException::class);
         $this->config->getCampaignCode('product');
     }
+
+    public function testGetActionCode(): void
+    {
+        putenv('ADMITAD_PRODUCT_ACTION_CODE=2');
+        $this->assertEquals(2, $this->config->getActionCode('product'));
+
+        putenv('ADMITAD_PRODUCT_ACTION_CODE');
+        $this->expectException(MissingEnvironmentException::class);
+        $this->config->getActionCode('product');
+    }
 }
