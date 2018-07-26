@@ -24,4 +24,9 @@ class EnvironmentConfig extends Environment\Yii2\Config implements ConfigInterfa
     {
         return $this->getEnv($this->getProductPrefix($product) . 'CAMPAIGN_CODE');
     }
+
+    public function getActionCode(?string $product = null): int
+    {
+        return $this->getEnv($this->getProductPrefix($product) . 'ACTION_CODE');
+    }
 }
