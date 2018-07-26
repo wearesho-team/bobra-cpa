@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Wearesho\Bobra\Cpa\Tests\AdmitAd;
 
 use Wearesho\Bobra\Cpa;
@@ -28,6 +27,11 @@ class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
                 public function getCampaignCode(?string $product = null): string
                 {
                     return 'campaignCode';
+                }
+
+                public function getActionCode(?string $product = null): int
+                {
+                    return 2;
                 }
             }
         ]);
