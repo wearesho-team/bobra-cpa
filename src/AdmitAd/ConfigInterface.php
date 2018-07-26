@@ -11,4 +11,6 @@ interface ConfigInterface
     public function getPostbackKey(?string $product = null): string;
 
     public function getCampaignCode(?string $product = null): string;
+
+    public function getActionCode(?string $product = null): int;
 }
