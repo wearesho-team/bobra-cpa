@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/wearesho-team/bobra-cpa.svg?branch=master)](https://travis-ci.org/wearesho-team/bobra-cpa)
 [![codecov](https://codecov.io/gh/wearesho-team/bobra-cpa/branch/master/graph/badge.svg)](https://codecov.io/gh/wearesho-team/bobra-cpa)
 
+[Change Log](./CHANGELOG.md)
+
 ## Integrated
 - [SalesDoubler](./src/SalesDoubler)
 - [DoAffiliate](./src/DoAffiliate)
@@ -58,6 +60,7 @@ This package can be configured by environment variables out-of-box:
 - **CASHKA_PATH** - unique path in URL for Cashka
 - **ADMITAD_POSTBACK_KEY** - postback key for AdmitAd
 - **ADMITAD_CAMPAIGN_CODE** - campaign code for AdmitAd
+- **ADMITAD_ACTION_CODE** - action code for AdmitAd (integer, example: *1*)
 - **PRIME_LEAD_PATH** - secret path in url for PrimeLead
 - **LEADS_SU_TOKEN** - token for LeadsSu
 
