@@ -26,7 +26,7 @@ class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
             'clickId' => static:: CLICK_ID,
         ]));
         $this->assertEquals(
-            'POST',
+            'GET',
             $tuple->getRequest()->getMethod()
         );
         $this->assertEquals(
