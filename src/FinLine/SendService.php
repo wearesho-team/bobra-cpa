@@ -25,6 +25,6 @@ class SendService implements Cpa\Conversion\SendServiceInterface
         $url = "http://offers.finline.affise.com/postback?clickid={$clickId}&action_id={$conversion->getId()}&status="
             . static::STATUS_APPROVED;
 
-        return new Psr7\Request("post", $url);
+        return new Psr7\Request("get", $url);
     }
 }
