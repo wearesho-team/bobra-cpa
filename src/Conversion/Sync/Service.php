@@ -60,6 +60,12 @@ class Service implements Cpa\Conversion\ServiceInterface
                 'class' => Cpa\LeadsSu\EnvironmentConfig::class,
             ],
         ],
+        Cpa\Lead\Source::LETMEADS => [
+            'class' => Cpa\Letmeads\SendService::class,
+            'config' => [
+                'class' => Cpa\Letmeads\EnvironmentConfig::class,
+            ],
+        ],
     ];
 
     /**

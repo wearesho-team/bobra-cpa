@@ -30,6 +30,7 @@ class Controller extends web\Controller
         Cpa\Lead\Source::CASHKA => Cpa\Cashka\LeadModel::class,
         Cpa\Lead\Source::PRIME_LEAD => Cpa\PrimeLead\LeadModel::class,
         Cpa\Lead\Source::LEADS_SU => Cpa\LeadsSu\LeadModel::class,
+        Cpa\Lead\Source::LETMEADS => Cpa\Letmeads\LeadModel::class,
     ];
 
     /**
