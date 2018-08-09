@@ -38,11 +38,12 @@ class SendService extends base\BaseObject implements Cpa\Conversion\SendServiceI
         $path = $this->config->getPath($conversion->getProduct());
 
         $params = [
+            'code' => 'Y',
             'ref_id' => $conversion->getId(),
-            'click_id' => $conversion->getConfig()['letmeadsRef'],
+            'click_id' => $conversion->getConfig()['letmeadsRef'] ?? null,
         ];
 
-        $url = "https://ad.letmeads.com/{$path}" . http_build_query($params);
+        $url = "https://ad.letmeads.com/api/v1.1/{$path}/get/postback.json?" . http_build_query($params);
 
         return new Request('get', $url);
     }

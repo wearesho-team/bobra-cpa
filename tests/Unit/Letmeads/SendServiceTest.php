@@ -13,7 +13,7 @@ use GuzzleHttp;
  */
 class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
 {
-    public const LETMEADS_REF = 'test';
+    public const LETMEADS_REF = 'testRef';
 
     public function testRequest(): void
     {
@@ -27,7 +27,7 @@ class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
 
         $this->assertEquals('GET', $tuple->getRequest()->getMethod());
         $this->assertEquals(
-            'https://ad.letmeads.com/api/v1.1/test?code=Y&ref_id=10&click_id=test',
+            'https://ad.letmeads.com/api/v1.1/testPath/get/postback.json?code=Y&ref_id=10&click_id=testRef',
             (string)$tuple->getRequest()->getUri()
         );
     }
@@ -39,7 +39,7 @@ class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
             {
                 public function getPath(?string $product = null): string
                 {
-                    return 'api/v1.1/test?code=Y&';
+                    return 'testPath';
                 }
             },
         ]);
