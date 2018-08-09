@@ -41,11 +41,6 @@ class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
                 {
                     return 'api/v1.1/test?code=Y&';
                 }
-
-                public function getRef(?string $product = null): string
-                {
-                    return 'test';
-                }
             },
         ]);
     }

@@ -33,14 +33,4 @@ class EnvironmentConfigTest extends TestCase
         $this->expectException(MissingEnvironmentException::class);
         $this->config->getPath('product');
     }
-
-    public function testGetLEtmeadsId(): void
-    {
-        putenv('LETMEADS_PRODUCT_REF=1234567890');
-        $this->assertEquals('1234567890', $this->config->getRef('product'));
-
-        putenv('LETMEADS_PRODUCT_REF');
-        $this->expectException(MissingEnvironmentException::class);
-        $this->config->getRef('product');
-    }
 }

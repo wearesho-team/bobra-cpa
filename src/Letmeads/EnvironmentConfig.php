@@ -20,9 +20,4 @@ class EnvironmentConfig extends Environment\Yii2\Config implements ConfigInterfa
     {
         return $this->getEnv($this->getProductPrefix($product) . 'PATH');
     }
-
-    public function getRef(?string $product = null): string
-    {
-        return $this->getEnv($this->getProductPrefix($product) . 'REF');
-    }
 }

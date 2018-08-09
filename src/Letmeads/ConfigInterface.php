@@ -9,6 +9,4 @@ namespace Wearesho\Bobra\Cpa\Letmeads;
 interface ConfigInterface
 {
     public function getPath(?string $product): string;
-
-    public function getRef(?string $product): string;
 }
