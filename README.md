@@ -13,6 +13,7 @@
 - [Cashka](./src/Cashka)
 - [PrimeLead](./src/PrimeLead)
 - [Leads.SU](./src/LeadsSu)
+- [Letmeads](./src/Letmeads)
 
 ## Usage
 ### Installation
@@ -63,6 +64,7 @@ This package can be configured by environment variables out-of-box:
 - **ADMITAD_ACTION_CODE** - action code for AdmitAd (integer, example: *1*)
 - **PRIME_LEAD_PATH** - secret path in url for PrimeLead
 - **LEADS_SU_TOKEN** - token for LeadsSu
+- **LETMEADS_PATH** - part of path for Letmeads postback url
 
 If one of key for some CPA network not set 
 postback requests for this network will not be done. 
