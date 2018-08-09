@@ -16,4 +16,5 @@ interface Source
     public const ADMIT_AD = 'admitAd';
     public const PRIME_LEAD = 'primeLead';
     public const LEADS_SU = 'leadsSu';
+    public const LETMEADS = 'letmeads';
 }
