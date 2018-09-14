@@ -32,7 +32,7 @@ class EnvironmentConfigTest extends TestCase
         
         $this->assertEquals(
             static::ID,
-            $this->fakeEnvironmentConfig->getOfferId('product')  
+            $this->fakeEnvironmentConfig->getOfferId('product')
         );
     }
 
