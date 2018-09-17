@@ -35,7 +35,7 @@ class SendService extends base\BaseObject implements Cpa\Conversion\SendServiceI
             'transaction_id' => $conversion->getConfig()['clickId'] ?? null,
         ];
 
-        $url = 'http://go.leadgid.ru/aff_c?'
+        $url = 'http://go.leadgid.ru/aff_lsr?'
             . http_build_query($params);
 
         return new GuzzleHttp\Psr7\Request('get', $url);
