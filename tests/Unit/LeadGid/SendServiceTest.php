@@ -13,11 +13,6 @@ use Wearesho\Bobra\Cpa;
  */
 class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
 {
-    /**
-     * @internal
-     */
-    public const ID = 'testId';
-
     /** @var Cpa\LeadGid\LeadModel */
     protected $fakeLeadModel;
 
@@ -28,7 +23,7 @@ class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
             {
                 public function getOfferId(?string $product = null): string
                 {
-                    return SendServiceTest::ID;
+                    return '1234';
                 }
             },
         ]);
@@ -40,12 +35,17 @@ class SendServiceTest extends Cpa\Tests\Unit\Conversion\SendServiceTest
         $this->mock->append($response);
 
         $tuple = $this->sendService->send($this->mockConversion([
-            'clickId' => static::ID,
+            'clickId' => 1100,
         ]));
 
         $this->assertEquals(
             'GET',
             $tuple->getRequest()->getMethod()
+        );
+
+        $this->assertEquals(
+            'http://go.leadgid.ru/aff_lsr?offer_id=1234&adv_sub=10&transaction_id=1100',
+            $tuple->getRequest()->getUri()->__toString()
         );
     }
 }
