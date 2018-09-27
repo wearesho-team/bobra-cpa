@@ -1,6 +1,7 @@
 language: php
 services:
   - postgresql
+  - mysql
 
 php:
     - 7.2
@@ -10,7 +11,8 @@ before_script:
     - travis_retry composer install --no-interaction --prefer-source
 
 before_install:
-    - psql -c 'create database bobra_cpa;' -U postgres
+    - psql -c 'CREATE DATABASE bobra_cpa;' -U postgres
+    - mysql -e 'CREATE DATABASE IF NOT EXISTS bobra_cpa;'
 
 script:
     - ./vendor/bin/phpcs --standard=PSR2 ./src ./tests
@@ -20,8 +22,10 @@ after_success:
     - bash <(curl -s https://codecov.io/bash)
 
 env:
-    - DB_TYPE: pgsql
-      DB_HOST: localhost
-      DB_USER: postgres
-      DB_NAME: bobra_cpa
-      DB_PASS:
+    - DB=mysql
+    - DB=postgresql
+#    - DB_TYPE: pgsql
+#      DB_HOST: localhost
+#      DB_USER: postgres
+#      DB_NAME: bobra_cpa
+#      DB_PASS:
