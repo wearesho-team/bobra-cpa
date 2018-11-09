@@ -2,13 +2,11 @@
 
 namespace Wearesho\Bobra\Cpa\Lead;
 
-use Wearesho\Bobra\Cpa\Lead;
-
 /**
  * Interface Parser
  * @package Wearesho\Bobra\Cpa\Lead
  */
-interface ParserInterface
+interface Parser
 {
-    public function parse(string $url) :?LeadInfo;
+    public function parse(string $url) :?Info;
 }

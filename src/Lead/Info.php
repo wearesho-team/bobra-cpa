@@ -3,10 +3,10 @@
 namespace Wearesho\Bobra\Cpa\Lead;
 
 /**
- * Class LeadInfo
+ * Class Info
  * @package Wearesho\Bobra\Cpa\Lead
  */
-class LeadInfo
+class Info
 {
     /** @var string */
     protected $source;

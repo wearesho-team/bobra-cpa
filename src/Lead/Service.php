@@ -12,10 +12,10 @@ use yii\base;
  */
 class Service extends base\BaseObject
 {
-    /** @var ParserInterface */
+    /** @var Lead\Parser */
     public $parser;
 
-    public function __construct(ParserInterface $parser, array $config = [])
+    public function __construct(Lead\Parser $parser, array $config = [])
     {
         parent::__construct($config);
         $this->parser = $parser;
@@ -30,7 +30,7 @@ class Service extends base\BaseObject
     {
         foreach ($urls as $url) {
             $leadInfo = $this->parser->parse($url);
-            if ($leadInfo instanceof LeadInfo) {
+            if ($leadInfo instanceof Lead\Info) {
                 break;
             }
         }

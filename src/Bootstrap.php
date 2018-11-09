@@ -15,9 +15,9 @@ class Bootstrap extends base\BaseObject implements base\BootstrapInterface
 {
     use BootstrapMigrations;
 
-    /** @var array|string|Cpa\Lead\ParserInterface */
+    /** @var array|string|Cpa\Lead\Parser */
     public $parser = [
-        'class' => Cpa\Lead\ParsersChain::class,
+        'class' => Cpa\Lead\Parser\Chain::class,
     ];
 
     /**
@@ -43,6 +43,6 @@ class Bootstrap extends base\BaseObject implements base\BootstrapInterface
                 : Cpa\Conversion\Sync\Service::class
         );
 
-        \Yii::$container->set(Cpa\Lead\ParserInterface::class, $this->parser);
+        \Yii::$container->set(Cpa\Lead\Parser::class, $this->parser);
     }
 }
