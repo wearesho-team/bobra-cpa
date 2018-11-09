@@ -11,9 +11,14 @@ use yii\console;
  * Class Bootstrap
  * @package Wearesho\Bobra\Cpa
  */
-class Bootstrap implements base\BootstrapInterface
+class Bootstrap extends base\BaseObject implements base\BootstrapInterface
 {
     use BootstrapMigrations;
+
+    /** @var array|string|Cpa\Lead\ParserInterface */
+    public $parser = [
+        'class' => Cpa\Lead\ParsersChain::class,
+    ];
 
     /**
      * @inheritdoc
@@ -37,5 +42,7 @@ class Bootstrap implements base\BootstrapInterface
                 ? Cpa\Conversion\Queue\Service::class
                 : Cpa\Conversion\Sync\Service::class
         );
+
+        \Yii::$container->set(Cpa\Lead\ParserInterface::class, $this->parser);
     }
 }
