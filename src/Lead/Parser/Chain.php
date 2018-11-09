@@ -16,6 +16,15 @@ class Chain extends base\BaseObject implements Lead\Parser
     /** @var array[]|string[]|Lead\Parser[] */
     public $parsers = [
         Cpa\AdmitAd\Lead\Parser::class,
+        Cpa\Cashka\Lead\Parser::class,
+        Cpa\DoAffiliate\Lead\Parser::class,
+        Cpa\FinLine\Lead\Parser::class,
+        Cpa\LeadGid\Lead\Parser::class,
+        Cpa\LeadsSu\Lead\Parser::class,
+        Cpa\Letmeads\Lead\Parser::class,
+        Cpa\LoanGate\Lead\Parser::class,
+        Cpa\PrimeLead\Lead\Parser::class,
+        Cpa\SalesDoubler\Lead\Parser::class,
     ];
 
     public function init(): void
