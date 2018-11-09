@@ -17,7 +17,7 @@ class Parser implements Lead\Parser
     public function parse(string $url): ?Lead\Info
     {
         $query = $this->getQueryParams($url);
-        if (empty($query) || !array_key_exists(static::PARAM_NAME, $query)) {
+        if (!array_key_exists(static::PARAM_NAME, $query)) {
             return null;
         }
 
