@@ -2,6 +2,7 @@
 
 namespace Wearesho\Bobra\Cpa\Lead\Parser;
 
+use Wearesho\Bobra\Cpa;
 use Wearesho\Bobra\Cpa\Lead;
 use yii\base;
 use yii\di;
@@ -13,7 +14,9 @@ use yii\di;
 class Chain extends base\BaseObject implements Lead\Parser
 {
     /** @var array[]|string[]|Lead\Parser[] */
-    public $parsers = [];
+    public $parsers = [
+        Cpa\AdmitAd\Lead\Parser::class,
+    ];
 
     public function init(): void
     {
