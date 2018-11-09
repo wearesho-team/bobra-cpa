@@ -1,14 +1,14 @@
 <?php
 
-namespace Wearesho\Bobra\Cpa\Tests\Unit\Cashka;
+namespace Wearesho\Bobra\Cpa\Tests\Unit\DoAffiliate;
 
-use Wearesho\Bobra\Cpa\Cashka\Lead\Parser;
+use Wearesho\Bobra\Cpa\DoAffiliate\Lead\Parser;
 use Wearesho\Bobra\Cpa\Lead\Info;
 use Wearesho\Bobra\Cpa\Tests\AbstractTestCase;
 
 /**
  * Class LeadParserTest
- * @package Wearesho\Bobra\Cpa\Tests\Unit\Cashka
+ * @package Wearesho\Bobra\Cpa\Tests\Unit\DoAffiliate
  */
 class LeadParserTest extends AbstractTestCase
 {
@@ -24,18 +24,18 @@ class LeadParserTest extends AbstractTestCase
         $this->assertNull($parser->parse('?utm_source=invalid'));
     }
 
-    public function testMissingTransactionId(): void
+    public function testMissingVisitor(): void
     {
         $parser = new Parser();
-        $this->assertNull($parser->parse('?utm_source=cashka'));
+        $this->assertNull($parser->parse('?utm_source=doaff'));
     }
 
     public function testSuccess(): void
     {
         $parser = new Parser();
-        $info = $parser->parse('?utm_source=cashka&transaction_id=1337');
+        $info = $parser->parse('?utm_source=doaff&v=1337');
         $this->assertInstanceOf(Info::class, $info);
-        $this->assertEquals('cashka', $info->getSource());
-        $this->assertEquals(['transactionId' => 1337,], $info->getConfig());
+        $this->assertEquals('doAffiliate', $info->getSource());
+        $this->assertEquals(['visitor' => 1337,], $info->getConfig());
     }
 }
