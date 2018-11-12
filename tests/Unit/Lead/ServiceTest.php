@@ -15,19 +15,16 @@ class ServiceTest extends AbstractTestCase
 {
     public function testUnsuccessful(): void
     {
-        $this->assertEquals(0, Lead::find()->count());
         $service = new Service(new ParserMock(false));
-        $service->create(1, ['test']);
-        $this->assertEquals(0, Lead::find()->count());
+        $lead = $service->create(1, ['test']);
+        $this->assertNull($lead);
     }
 
     public function testSuccessful(): void
     {
-        $this->assertEquals(0, Lead::find()->count());
         $service = new Service(new ParserMock());
-        $service->create(1, ['test']);
+        $lead = $service->create(1, ['test']);
 
-        $lead = Lead::find()->one();
         $this->assertInstanceOf(Lead::class, $lead);
         $this->assertEquals('test', $lead->source);
         $this->assertEquals(['testField' => 'testValue',], $lead->config);

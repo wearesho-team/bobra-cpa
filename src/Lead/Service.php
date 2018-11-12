@@ -24,9 +24,10 @@ class Service extends base\BaseObject
     /**
      * @param int $userId
      * @param string[] $urls
+     * @return Lead
      * @throws \Horat1us\Yii\Interfaces\ModelExceptionInterface
      */
-    public function create(int $userId, array $urls): void
+    public function create(int $userId, array $urls): ?Lead
     {
         foreach ($urls as $url) {
             $leadInfo = $this->parser->parse($url);
@@ -36,7 +37,7 @@ class Service extends base\BaseObject
         }
 
         if (empty($leadInfo)) {
-            return;
+            return null;
         }
 
         $lead = new Lead([
@@ -46,5 +47,7 @@ class Service extends base\BaseObject
         ]);
 
         ModelException::saveOrThrow($lead);
+
+        return $lead;
     }
 }
