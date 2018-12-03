@@ -14,6 +14,7 @@
 - [PrimeLead](./src/PrimeLead)
 - [Leads.SU](./src/LeadsSu)
 - [Letmeads](./src/Letmeads)
+- [LinkProfit](./src/LinkProfit)
 
 ## Usage
 ### Installation
@@ -65,6 +66,7 @@ This package can be configured by environment variables out-of-box:
 - **PRIME_LEAD_PATH** - secret path in url for PrimeLead
 - **LEADS_SU_TOKEN** - token for LeadsSu
 - **LETMEADS_PATH** - part of path for Letmeads postback url
+- **LINK_PROFIT_CAMPAIGN_ID** - unique identifier for LinkProfit
 
 If one of key for some CPA network not set 
 postback requests for this network will not be done. 
