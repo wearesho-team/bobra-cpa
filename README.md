@@ -71,6 +71,9 @@ This package can be configured by environment variables out-of-box:
 If one of key for some CPA network not set 
 postback requests for this network will not be done. 
 
+## Requirements
+- MySQL ^5.7 or PostgreSQL ^9.4
+- PHP ^7.2
 
 ## Contribution
 ### Add new CPA
