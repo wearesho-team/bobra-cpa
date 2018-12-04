@@ -8,7 +8,5 @@ namespace Wearesho\Bobra\Cpa\LinkProfit;
  */
 interface ConfigInterface
 {
-    public const URL = 'https://cpa.linkprofit.ru/sale';
-
     public function getCampaignId(?string $product = null): string;
 }
