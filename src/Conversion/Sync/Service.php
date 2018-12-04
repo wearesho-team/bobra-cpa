@@ -72,6 +72,12 @@ class Service implements Cpa\Conversion\ServiceInterface
                 'class' => Cpa\LeadGid\EnvironmentConfig::class,
             ],
         ],
+        Cpa\Lead\Source::LINK_PROFIT => [
+            'class' => Cpa\LinkProfit\SendService::class,
+            'config' => [
+                'class' => Cpa\LinkProfit\EnvironmentConfig::class,
+            ],
+        ],
     ];
 
     /**
