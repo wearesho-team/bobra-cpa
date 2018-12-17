@@ -161,6 +161,7 @@ There can be differences in requirements with [frontend library](https://github.
 - Loan Gate - ?afclick=...
 - Prime Lead - ?utm_source=primelead&transaction_id=...
 - Sales Doubler - ?utm_source=salesdoubler|cpanet_salesdubler|cpanet_salesdoubler&aff_sub=...
+- Link Profit - ?utm_source=linkprofit&wm_id=...&click_hash=...
 
 ## Contribution
 ### Add new CPA
@@ -174,7 +175,9 @@ using [Conversion\SendServiceTrait](./src/Conversion/SendServiceTrait.php)
 (example [DoAffiliate\SendService](./src/DoAffiliate/SendService.php))
 - add send service to [Conversion\Service](src/Conversion/Sync/Service.php)
 senders configuration
+- implement [Lead\Parser](./src/Lead/Parser.php) for parsing urls
 - add tests for implemented classes
+- define url configuration in [README](./README.md#L148)
 - extend CPA networks list in [README](./README.md#Integrated)
 - if use environment configuration extend configuration block in [README](./README.md#Configuration)
 
