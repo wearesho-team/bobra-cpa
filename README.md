@@ -16,6 +16,10 @@
 - [Letmeads](./src/Letmeads)
 - [LinkProfit](./src/LinkProfit)
 
+## Requirements
+- MySQL ^5.7 or PostgreSQL ^9.4
+- PHP ^7.2
+
 ## Usage
 ### Installation
 - install using composer
@@ -71,9 +75,93 @@ This package can be configured by environment variables out-of-box:
 If one of key for some CPA network not set 
 postback requests for this network will not be done. 
 
-## Requirements
-- MySQL ^5.7 or PostgreSQL ^9.4
-- PHP ^7.2
+### Lead parsing
+
+There is an ability to parse leads from passed url.
+You can use either some unique parser for needle CPA network or use [Parsers Chain](./src/Lead/Parser/Chain.php)
+which runs all configured parsers.
+If the CPA network is detected, you'll receive [Lead Information](./src/Lead/Info.php).
+In another case `null` will be returned.
+
+Here's an example of single parser usage:
+```php
+<?php
+
+use Wearesho\Bobra\Cpa\AdmitAd;
+
+/** @var string $url */
+
+$parser = new AdmitAd\Lead\Parser();
+$info = $parser->parse($url);
+```
+
+As said before, you can run several parsers by using [Parsers Chain](./src/Lead/Parser/Chain.php):
+
+```php
+<?php
+
+use Wearesho\Bobra\Cpa;
+
+/** @var string $url */
+
+$parserChain = new Cpa\Lead\Parser\Chain([
+    'parsers' => [
+        Cpa\AdmitAd\Lead\Parser::class,
+        Cpa\Cashka\Lead\Parser::class,
+    ],
+]);
+
+$info = $parserChain->parse($url);
+
+``` 
+
+You can also configure parser in bootstrap
+
+```php
+<?php
+
+// config/main.php
+
+use Wearesho\Bobra\Cpa;
+
+return [
+    // ...
+    'bootstrap' => [
+        'cpa' => [
+            'class' => Cpa\Bootstrap::class,
+            'parser' => [
+                'class' => Cpa\Lead\Parser\Chain::class,
+                'parsers' => [
+                    Cpa\AdmitAd\Lead\Parser::class,
+                    Cpa\Cashka\Lead\Parser::class,
+                    // other parsers
+                ],
+            ],             
+        ],        
+    ],
+];
+
+```
+
+Parser chain with all integrated CPA networks will be applied in bootstrap by default.
+
+### URL query format
+
+Here is examples of URL query format that is required by each CPA network parser.
+Important! This formats are compatible with backend lead parsing.
+There can be differences in requirements with [frontend library](https://github.com/wearesho-team/bobra-cpa-frontend).
+
+- Admit Ad - ?admitad_uid=...
+- Cashka - ?utm_source=cashka&transaction_id=...
+- Do Affiliate - ?utm_source=doaff&v=...
+- Fin Line - ?utm_source=finline&clickid=...
+- Lead Gid - ?utm_source=leadgid&click_id=...
+- Leads Su - ?utm_source=leads-su&transaction_id=...
+- Letmeads - ?letmeads_ref=...
+- Loan Gate - ?afclick=...
+- Prime Lead - ?utm_source=primelead&transaction_id=...
+- Sales Doubler - ?utm_source=salesdoubler|cpanet_salesdubler|cpanet_salesdoubler&aff_sub=...
+- Link Profit - ?utm_source=linkprofit&wm_id=...&click_hash=...
 
 ## Contribution
 ### Add new CPA
@@ -87,7 +175,9 @@ using [Conversion\SendServiceTrait](./src/Conversion/SendServiceTrait.php)
 (example [DoAffiliate\SendService](./src/DoAffiliate/SendService.php))
 - add send service to [Conversion\Service](src/Conversion/Sync/Service.php)
 senders configuration
+- implement [Lead\Parser](./src/Lead/Parser.php) for parsing urls
 - add tests for implemented classes
+- define url configuration in [README](./README.md#L148)
 - extend CPA networks list in [README](./README.md#Integrated)
 - if use environment configuration extend configuration block in [README](./README.md#Configuration)
 
