@@ -38,4 +38,13 @@ class LeadParserTest extends AbstractTestCase
         $this->assertEquals('doAffiliate', $info->getSource());
         $this->assertEquals(['visitor' => 1337,], $info->getConfig());
     }
+
+    public function testSuccessWithFullUtmSource(): void
+    {
+        $parser = new Parser();
+        $info = $parser->parse('?utm_source=doaffiliate&v=1337');
+        $this->assertInstanceOf(Info::class, $info);
+        $this->assertEquals('doAffiliate', $info->getSource());
+        $this->assertEquals(['visitor' => 1337,], $info->getConfig());
+    }
 }
